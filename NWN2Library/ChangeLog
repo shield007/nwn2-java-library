@@ -1,0 +1,4 @@
+* Tue Feb 13 2010 John-Paul.Stanford <dev@stanwood.org.uk> - v0.1-Beta
+ - Added parser for reading information from 2DA files.
+ - Added parser for reading information from TLK files.
+ - Added parser for reading information from NWN2 XML GUI files.
