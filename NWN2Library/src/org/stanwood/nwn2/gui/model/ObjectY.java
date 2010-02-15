@@ -7,11 +7,9 @@ import org.stanwood.nwn2.gui.parser.GUIParseException;
 /**
  * Used to store the Y position of a object
  */
-public class ObjectY extends DimensionInteger {	
+public class ObjectY extends YPosition {	
 	
-	private static final String  ALIGN_CENTER = "ALIGN_CENTER";
-	private static final String ALIGN_LEFT = "ALIGN_LEFT";
-	private static final String ALIGN_RIGHT = "ALIGN_RIGHT";
+	
 	private static final String ALIGN_PARENT = "ALIGN_PARENT";
 	private UIObject obj;
 	
@@ -31,7 +29,7 @@ public class ObjectY extends DimensionInteger {
 	 * @throws GUIParseException Thrown if their is a problem parsing the value
 	 */
 	public ObjectY(String value,UIObject obj) throws GUIParseException {
-		super(value,new String[] {ALIGN_CENTER,ALIGN_LEFT,ALIGN_RIGHT});		
+		super(value,new String[] {ALIGN_PARENT,ALIGN_CENTER,ALIGN_LEFT,ALIGN_RIGHT});		
 		this.obj = obj;
 	}
 
@@ -45,17 +43,7 @@ public class ObjectY extends DimensionInteger {
 	 */
 	public int getValue(Dimension screenDimension,UIScene scene) {
 		String value = getStringValue();
-		int sceneHeight = scene.getHeight().getValue(screenDimension);
-		if (value.equalsIgnoreCase(ALIGN_CENTER)) {
-			return (screenDimension.height / 2) - (sceneHeight / 2);
-		}
-		else if (value.equalsIgnoreCase(ALIGN_LEFT)) {
-			return 0;
-		}
-		else if (value.equalsIgnoreCase(ALIGN_RIGHT)) {
-			return screenDimension.height - sceneHeight;
-		}
-		else if (value.equalsIgnoreCase(ALIGN_PARENT)) {
+		if (value.equalsIgnoreCase(ALIGN_PARENT)) {
 			int parentHeight = 0;
 			if (obj.getParent() instanceof UIScene) {
 				parentHeight = ((UIScene)obj.getParent()).getHeight().getValue(screenDimension);				
@@ -66,7 +54,7 @@ public class ObjectY extends DimensionInteger {
 			return (parentHeight /2) - (obj.getHeight().getValue(screenDimension) /2) ;
 		}
 		else {
-			return Integer.parseInt(value);
+			return super.getValue(screenDimension, scene);
 		}
 	}
 	

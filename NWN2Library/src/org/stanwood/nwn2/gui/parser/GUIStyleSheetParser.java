@@ -2,35 +2,29 @@ package org.stanwood.nwn2.gui.parser;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.antlr.runtime.ANTLRInputStream;
 import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.tree.CommonTree;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.stanwood.nwn2.gui.model.NWN2GUIObject;
-import org.stanwood.nwn2.gui.model.UIScene;
+import org.stanwood.nwn2.gui.model.UIObject;
 import org.stanwood.nwn2.gui.parser.antlr.NWN2GUIAntlrParser;
 import org.stanwood.nwn2.gui.parser.antlr.NWN2GUILexer;
 
-/**
- * Used to parse a Neverwinter Nights 2 GUI XML file and return a UIScene that contains
- * objects representing the GUI.
- */
-public class NWN2GUIParser extends BasicNWN2GUIParser {
+public class GUIStyleSheetParser extends BasicNWN2GUIParser{
 
-	private final static Log log = LogFactory.getLog(NWN2GUIParser.class);
-		
 	private InputStream guiFile;
-	private UIScene scene;
+	private List<UIObject> uiObjects = new ArrayList<UIObject>();
 	
 	/**
 	 * Used to create a instance of the parse
 	 * @param guiFile The input steam to the file been parsed.
 	 */
-	public NWN2GUIParser(InputStream guiFile) {
+	public GUIStyleSheetParser(InputStream guiFile) {
 		this.guiFile = guiFile;
 	}
 	
@@ -46,13 +40,29 @@ public class NWN2GUIParser extends BasicNWN2GUIParser {
 		    CommonTokenStream tokens = new  CommonTokenStream(lexer);
 
 		    NWN2GUIAntlrParser parser = new NWN2GUIAntlrParser(tokens);
-		 
-		    		    		   		    
+		 		    		    		   		   
 	        CommonTree tree = (CommonTree) parser.document().getTree();
-	        CommonTree node = findGUIObjectByName(tree,"UIScene");	       	        
-	        scene = (UIScene) createGUIObject(node,null);
 	        
-	        addObjectsToParent(tree,scene);	        
+	        for (int i=0;i<tree.getChildCount();i++) {
+				CommonTree child = (CommonTree) tree.getChild(i);
+				switch (child.getType()) {									
+					case NWN2GUIAntlrParser.TAG_CONTENTS:
+						String name = getGUIObjectName(child);
+						if (!name.equalsIgnoreCase("uiscene")) {						
+							NWN2GUIObject obj = createGUIObject(child,null);
+							for (int j=0;j<child.getChildCount();j++) {
+								CommonTree child2 = (CommonTree) child.getChild(j);
+								if (child2.getType() == NWN2GUIAntlrParser.TAG_CONTENTS) {
+									addObjectsToParent(child2,obj);
+								}
+							}
+							uiObjects.add((UIObject)obj);							
+						}																			
+						break;
+					default:
+						// Do nothing
+				}
+			}
 		}
 		catch (RecognitionException e) {
 			throw new GUIParseException("Unable to parse gui file",e);
@@ -64,15 +74,7 @@ public class NWN2GUIParser extends BasicNWN2GUIParser {
 		}
 	}
 	
-	
-
-	
-	
-	/**
-	 * Once the scene has been parsed, this will return the scene.
-	 * @return Null if no scene parsed, otherwise the scene.
-	 */
-	public UIScene getGUI() {		
-		return scene;
+	public List<UIObject>getUIObjects() {
+		return uiObjects;
 	}
 }

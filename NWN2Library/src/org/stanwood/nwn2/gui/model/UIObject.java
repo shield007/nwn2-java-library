@@ -1,8 +1,12 @@
 package org.stanwood.nwn2.gui.model;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.stanwood.nwn2.gui.parser.GUIParseException;
 
 import edu.umd.cs.findbugs.annotations.Nullable;
@@ -16,7 +20,8 @@ import edu.umd.cs.findbugs.annotations.Nullable;
  */
 public class UIObject extends NWN2GUIObject {
 
-
+	private final static Log log = LogFactory.getLog(UIObject.class);
+	
 	private String name;
 	private Boolean scaleWithScene;
 
@@ -276,7 +281,7 @@ public class UIObject extends NWN2GUIObject {
 	 * Used to get the X position of the object
 	 * @return The X position of the object
 	 */
-	public ObjectX getX() {
+	public XPosition getX() {
 		return x;
 	}
 
@@ -292,7 +297,7 @@ public class UIObject extends NWN2GUIObject {
 	 * Used to get the Y position of the object
 	 * @return The Y position of the object
 	 */
-	public ObjectY getY() {
+	public YPosition getY() {
 		return y;
 	}
 
@@ -533,5 +538,50 @@ public class UIObject extends NWN2GUIObject {
 	public List<Callback> getOnUpdate() {
 		return  onUpdate;
 	}
+
+	public void applyStyle(UIObject styledObject) {
+		if (styledObject.getClass() == this.getClass()) {
+			for (Method m : styledObject.getClass().getMethods()) {
+				if (m.getName().startsWith("get") && !m.getName().equalsIgnoreCase("getprototype") &&
+					!m.getName().equalsIgnoreCase("getname") && !m.getName().equalsIgnoreCase("getclass") &&
+					!m.getName().equalsIgnoreCase("getchildren")) {
+					try {
+						Object value = m.invoke(styledObject);
+						if (value!=null) {
+							Method m2 = this.getClass().getMethod("set"+m.getName().substring(3),value.getClass());
+						
+							m2.invoke(this, value);
+						}
+					}
+					catch (InvocationTargetException e) {
+						log.error(e.getMessage(),e);
+					} catch (SecurityException e) {
+						log.error(e.getMessage(),e);
+					} catch (NoSuchMethodException e) {
+						log.error(e.getMessage(),e);
+					} catch (IllegalArgumentException e) {
+						log.error(e.getMessage(),e);
+					} catch (IllegalAccessException e) {
+						log.error(e.getMessage(),e);
+					}
+				}
+			}
+			for (NWN2GUIObject child : styledObject.getChildren()) {
+				addChildObject(child);
+			}
+		}
+	}
+
+
+	@Override
+	public String toString() {
+		if (getName()!=null) {
+			return getName();
+		}
+		else {
+			return super.toString();
+		}
+	}
+	
 	
 }

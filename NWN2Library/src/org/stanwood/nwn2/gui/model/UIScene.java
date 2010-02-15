@@ -81,8 +81,8 @@ public class UIScene extends NWN2GUIObject {
 	
 	private Width width;
 	private Height height;	
-	private SceneX x = new SceneX(0);
-	private SceneY y = new SceneY(0);
+	private XPosition x = new XPosition(0);
+	private YPosition y = new YPosition(0);
 	
 	/**
 	 * This is the amount of time in seconds a scene should be up before it is automatically removed from view and unloaded from memory. If 0 or not set, then the scene will never be automatically removed from view. 
@@ -267,7 +267,7 @@ public class UIScene extends NWN2GUIObject {
 	 * If the GUI XML file did not specify a X origin, then "0" is returned.
 	 * @return The X origin of the scene 
 	 */			
-	public SceneX getX() {
+	public XPosition getX() {
 		return x;
 	}
 	
@@ -275,7 +275,7 @@ public class UIScene extends NWN2GUIObject {
 	 * Used to set the X origin of the scene. The value can either be a integer, ALIGN_CENTER, ALIGN_LEFT, ALIGN_RIGHT. 
 	 * @param x The X origin of the scene 
 	 */
-	public void setX(SceneX x) {
+	public void setX(XPosition x) {
 		this.x = x;
 	}
 	
@@ -284,7 +284,7 @@ public class UIScene extends NWN2GUIObject {
 	 * If the GUI XML file did not specify a Y origin, then "0" is returned.
 	 * @return The Y origin of the scene 
 	 */
-	public SceneY getY() {	
+	public YPosition getY() {	
 		return y;
 	}
 	
@@ -292,7 +292,7 @@ public class UIScene extends NWN2GUIObject {
 	 * Used to set the Y origin of the scene. The value can either be a integer, ALIGN_CENTER, ALIGN_LEFT, ALIGN_RIGHT. 
 	 * @param y The Y origin of the scene 
 	 */
-	public void setY(SceneY y) {
+	public void setY(YPosition y) {
 		this.y = y;
 	}
 	

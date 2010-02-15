@@ -7,11 +7,9 @@ import org.stanwood.nwn2.gui.parser.GUIParseException;
 /**
  * Used to store the X position of a object
  */
-public class ObjectX extends DimensionInteger {	
+public class ObjectX extends XPosition {	
 
-	public static final String  ALIGN_CENTER = "ALIGN_CENTER";
-	public static final String ALIGN_LEFT = "ALIGN_LEFT";
-	public static final String ALIGN_RIGHT = "ALIGN_RIGHT";	
+	
 	public static final String ALIGN_PARENT = "ALIGN_PARENT";
 	private UIObject obj;
 	
@@ -32,7 +30,7 @@ public class ObjectX extends DimensionInteger {
 	 * @throws GUIParseException Thrown if their is a problem parsing the value
 	 */
 	public ObjectX(String value,UIObject obj) throws GUIParseException {
-		super(value,new String[] {ALIGN_CENTER,ALIGN_LEFT,ALIGN_RIGHT});		
+		super(value,new String[] {ALIGN_PARENT,ALIGN_CENTER,ALIGN_LEFT,ALIGN_RIGHT});		
 		this.obj = obj;
 	}
 
@@ -44,19 +42,10 @@ public class ObjectX extends DimensionInteger {
 	 * @param screenDimension The dimensions of the screen
 	 * @return The X position of the object
 	 */
+	@Override
 	public int getValue(Dimension screenDimension,UIScene scene) {
-		String value = getStringValue();
-		int sceneWidth = scene.getWidth().getValue(screenDimension);
-		if (value.equalsIgnoreCase(ALIGN_CENTER)) {
-			return (screenDimension.width / 2) - (sceneWidth / 2);
-		}
-		else if (value.equalsIgnoreCase(ALIGN_LEFT)) {
-			return 0;
-		}
-		else if (value.equalsIgnoreCase(ALIGN_RIGHT)) {
-			return screenDimension.width - sceneWidth;
-		}
-		else if (value.equalsIgnoreCase(ALIGN_PARENT)) {
+		String value = getStringValue();		
+		if (value.equalsIgnoreCase(ALIGN_PARENT)) {
 			int parentWidth = 0;
 			if (obj.getParent() instanceof UIScene) {
 				parentWidth = ((UIScene)obj.getParent()).getWidth().getValue(screenDimension);				
@@ -67,7 +56,7 @@ public class ObjectX extends DimensionInteger {
 			return (parentWidth /2) - (obj.getWidth().getValue(screenDimension) /2) ;
 		}
 		else {
-			return Integer.parseInt(value);
+			return super.getValue(screenDimension,scene);
 		}
 	}
 	

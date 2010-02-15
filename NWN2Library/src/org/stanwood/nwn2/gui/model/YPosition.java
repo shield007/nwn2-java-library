@@ -7,17 +7,17 @@ import org.stanwood.nwn2.gui.parser.GUIParseException;
 /**
  * Used to store the Y position of a scene
  */
-public class SceneY extends DimensionInteger {	
+public class YPosition extends DimensionInteger {	
 	
-	private static final String  ALIGN_CENTER = "ALIGN_CENTER";
-	private static final String ALIGN_LEFT = "ALIGN_LEFT";
-	private static final String ALIGN_RIGHT = "ALIGN_RIGHT";	
+	public static final String  ALIGN_CENTER = "ALIGN_CENTER";
+	public static final String ALIGN_LEFT = "ALIGN_LEFT";
+	public static final String ALIGN_RIGHT = "ALIGN_RIGHT";	
 
 	/**
 	 * Used to create a instance of the object and parse the Y position
 	 * @param value The Y position of the screen
 	 */
-	public SceneY(int value) {
+	public YPosition(int value) {
 		super(value);
 	}
 	
@@ -26,8 +26,12 @@ public class SceneY extends DimensionInteger {
 	 * @param value The Y position of the screen or "ALIGN_CENTER","ALIGN_LEFT","ALIGN_RIGHT" to align to the dimensions of the screen
 	 * @throws GUIParseException Thrown if their is a problem parsing the value
 	 */
-	public SceneY(String value) throws GUIParseException {
-		super(value,new String[] {ALIGN_CENTER,ALIGN_LEFT,ALIGN_RIGHT});				
+	public YPosition(String value) throws GUIParseException {
+		this(value,new String[] {ALIGN_CENTER,ALIGN_LEFT,ALIGN_RIGHT});				
+	}
+	
+	protected YPosition(String value, String[] allowedSpecialValues) throws GUIParseException {
+		super(value,allowedSpecialValues);
 	}
 
 	/**
