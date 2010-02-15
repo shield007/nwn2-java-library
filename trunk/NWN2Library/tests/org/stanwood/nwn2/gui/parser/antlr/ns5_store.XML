@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="NWN2UI">
+
+<UIScene name="NS5_STORE" x=ALIGN_CENTER y=ALIGN_CENTER width=359 height=485 fadeout="0.3" fadein="0.3" draggable=true
+	priority="SCENE_INGAME" scriptloadable=true backoutkey=true update=true
+	idleexpiretime="1.0f"
+		OnBackout0=UIObject_Misc_ExecuteServerScript("gui_store_close",local:22)
+	OnBackout1=UIButton_Input_ScreenClose()
+		OnDestroy=UIObject_Misc_ExecuteServerScript("gui_store_close",local:22)/>
+
+	<!-- Store Detail -->
+	<UIIcon name="STORE_DETAIL" img="store_icon.tga" x=0 y=0 width=78 height=69 ignoreevents=true />
+	<!-- Scene Title -->
+	<UIText strref="62020" x=80 y=8 width=265 height=27 align=left valign=middle fontfamily="Title_Font" style="2" />
+	<!-- Close Button -->
+	<UIButton name="CloseButton" x=322 y=8 style="STYLE_CLOSE_BUTTON"
+		OnLeftClick0=UIObject_Misc_ExecuteServerScript("gui_store_close",local:22)
+		OnLeftClick1=UIButton_Input_ScreenClose()>
+	</UIButton>
+
+	<!-- Inv Buttons -->
+	<UIGrid name="STORE_GRID" rows=1 columns=5 x=93 y=33 xPadding=0 yPadding=0>
+				<UIButton name="STORE_ARMOR" width=52 height=51 buttontype=radio groupid=1 groupmemberid=1 update="true"
+				OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(112775,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2")
+				OnUpdate=UIButton_OnUpdate_SetCheckedIfLocalVarEquals(local:610,true)
+				OnLeftClick0=UIObject_Misc_SetLocalVarString(local:20,"0")
+				OnLeftClick1=UIObject_Misc_ExecuteServerScript("gui_store_tab",local:22,local:20) >
+						<UIFrame state=up		fill="b_armor_normal.tga" />
+						<UIFrame state=down		fill="b_armor_hover_pressed.tga" />
+						<UIFrame state=focused	fill="b_armor_hover.tga" />
+						<UIFrame state=hilited	fill="b_armor_hover.tga" />
+						<UIFrame state=hifocus	fill="b_armor_hover_pressed.tga" />
+						<UIFrame state=disabled	fill="b_armor_normal.tga" />
+				</UIButton>
+				<UIButton name="STORE_WEAPON" width=52 height=51 buttontype=radio groupid=1 groupmemberid=2 update="true"
+				OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(112774,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2")
+				OnUpdate=UIButton_OnUpdate_SetCheckedIfLocalVarEquals(local:611,true)
+				OnLeftClick0=UIObject_Misc_SetLocalVarString(local:20,"1")
+				OnLeftClick1=UIObject_Misc_ExecuteServerScript("gui_store_tab",local:22,local:20) >
+						<UIFrame state=up		fill="b_weapon_normal.tga" />
+						<UIFrame state=down		fill="b_weapon_hover_pressed.tga" />
+						<UIFrame state=focused	fill="b_weapon_hover.tga" />
+						<UIFrame state=hilited	fill="b_weapon_hover.tga" />
+						<UIFrame state=hifocus	fill="b_weapon_hover_pressed.tga" />
+						<UIFrame state=disabled	fill="b_weapon_normal.tga" />
+				</UIButton>
+				<UIButton name="STORE_USEABLE" width=52 height=51 buttontype=radio groupid=1 groupmemberid=3 update="true"
+				OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(112776,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2")
+				OnUpdate=UIButton_OnUpdate_SetCheckedIfLocalVarEquals(local:612,true)
+				OnLeftClick0=UIObject_Misc_SetLocalVarString(local:20,"2")
+				OnLeftClick1=UIObject_Misc_ExecuteServerScript("gui_store_tab",local:22,local:20) >
+						<UIFrame state=up		fill="b_useable_normal.tga" />
+						<UIFrame state=down		fill="b_useable_hover_pressed.tga" />
+						<UIFrame state=focused	fill="b_useable_hover.tga" />
+						<UIFrame state=hilited	fill="b_useable_hover.tga" />
+						<UIFrame state=hifocus	fill="b_useable_hover_pressed.tga" />
+						<UIFrame state=disabled	fill="b_useable_normal.tga" />
+				</UIButton>
+				<UIButton name="STORE_TRINKET" width=52 height=51 buttontype=radio groupid=1 groupmemberid=4 update="true"
+				OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(112777,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2")
+				OnUpdate=UIButton_OnUpdate_SetCheckedIfLocalVarEquals(local:613,true)
+				OnLeftClick0=UIObject_Misc_SetLocalVarString(local:20,"3")
+				OnLeftClick1=UIObject_Misc_ExecuteServerScript("gui_store_tab",local:22,local:20) >
+						<UIFrame state=up		fill="b_trink_normal.tga" />
+						<UIFrame state=down		fill="b_trink_hover_pressed.tga" />
+						<UIFrame state=focused	fill="b_trink_hover.tga" />
+						<UIFrame state=hilited	fill="b_trink_hover.tga" />
+						<UIFrame state=hifocus	fill="b_trink_hover_pressed.tga" />
+						<UIFrame state=disabled	fill="b_trink_normal.tga" />
+				</UIButton>
+				<UIButton name="STORE_MISC" width=52 height=51 buttontype=radio groupid=1 groupmemberid=5 update="true"
+				OnToolTip=UIObject_Tooltip_DisplayTooltipStringRef(112778,"OBJECT_X","OBJECT_Y","SCREEN_TOOLTIP_2")
+				OnUpdate=UIButton_OnUpdate_SetCheckedIfLocalVarEquals(local:614,true)
+				OnLeftClick0=UIObject_Misc_SetLocalVarString(local:20,"4")
+				OnLeftClick1=UIObject_Misc_ExecuteServerScript("gui_store_tab",local:22,local:20) >
+						<UIFrame state=up		fill="b_misc_normal.tga" />
+						<UIFrame state=down		fill="b_misc_hover_pressed.tga" />
+						<UIFrame state=focused	fill="b_misc_hover.tga" />
+						<UIFrame state=hilited	fill="b_misc_hover.tga" />
+						<UIFrame state=hifocus	fill="b_misc_hover_pressed.tga" />
+						<UIFrame state=disabled	fill="b_misc_normal.tga" />
+				</UIButton>
+		</UIGrid>
+
+	<!-- Action buttons -->
+	<UIButton name="BuyButton" strref=6380 x=40 y=419 style="STYLE_SMALL_BUTTON" update=true
+		OnUpdate0=UIButton_OnUpdate_ControlSelected("NS5_STORE_BUY")
+		OnLeftClick=UIObject_Misc_ExecuteServerScript("gui_store_buy",local:6,local:8,local:10,local:12) >
+	</UIButton>
+	<UIButton name="ExamineButton" strref=6575 x=200 y=419 style="STYLE_SMALL_BUTTON" update=true
+		OnUpdate0=UIButton_OnUpdate_ControlSelected("NS5_STORE_BUY")
+		OnLeftClick=UIObject_Misc_ExecuteServerScript("gui_store_open_examine",local:6,local:8,local:10,local:12) >
+	</UIButton>
+
+	<!-- Item List Listbox -->
+	<UIListbox name="NS5_STORE_BUY" x=18 y=84 width=327 height=312 yPadding=0 xPadding=0
+		showpartialchild=true scrollbaronright=true unequalcontrols=true scrollsegmentsize=80 draggable=false
+		selectonleftclick=true update=true
+		OnMouseEnter=UIObject_Misc_ExecuteServerScript("gui_store_mouse","ENTER") 
+		OnMouseLeave=UIObject_Misc_ExecuteServerScript("gui_store_mouse","LEAVE")
+		>
+		<UIPane name="BuyPane" x=0 y=0 width=307 height=40 prototype=true draggable=false tupple=true>                                        	
+				<UIButton name="BuyPaneIcon" x=0 y=0 style="STYLE_LOOT_ICON" prototype=true draggable=false
+				OnLeftClick0=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",5,local:6)
+				OnLeftClick1=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",7,local:8)
+				OnLeftClick2=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",9,local:10)
+				OnLeftClick3=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",11,local:12)
+				OnRightClick0=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",5,local:6)
+				OnRightClick1=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",7,local:8)
+				OnRightClick2=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",9,local:10)
+				OnRightClick3=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",11,local:12)			
+				>
+					<UIText align=right valign=bottom fontfamily="Default" style="2"/>
+				</UIButton>													
+				
+				<UIButton name="BuyPaneName" x=40 y=0 width=198 height=40 style="STYLE_LOOT_TEXT" prototype=true draggable=false
+				OnLeftClick0=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",5,local:6)
+				OnLeftClick1=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",7,local:8)
+				OnLeftClick2=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",9,local:10)
+				OnLeftClick3=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",11,local:12)
+				OnRightClick0=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",5,local:6)
+				OnRightClick1=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",7,local:8)
+				OnRightClick2=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",9,local:10)
+				OnRightClick3=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",11,local:12)				
+				>
+					<UIText name="ITEM_TEXT_TEXTFIELD" x=10 y=0 indent=10 hangingindent=10 align=left valign=middle fontfamily="Body_Font" style=3 prototype=true/>
+					<UIFrame state=up		fill="b_i_normal.tga" />
+					<UIFrame state=down		fill="b_i_hover_pressed.tga" />
+					<UIFrame state=focused	fill="b_i_hover_pressed.tga" />
+					<UIFrame state=hilited	fill="b_i_hover.tga" />
+					<UIFrame state=hifocus	fill="b_i_hover_pressed.tga" />
+					<UIFrame state=disabled	fill="b_i_normal.tga" />
+				</UIButton>
+				<UIButton name="BuyPaneCost" x=238 y=0 width=74 height=40 style="STYLE_LOOT_TEXT" prototype=true draggable=false
+				OnLeftClick0=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",5,local:6)
+				OnLeftClick1=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",7,local:8)
+				OnLeftClick2=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",9,local:10)
+				OnLeftClick3=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",11,local:12)
+				OnRightClick0=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",5,local:6)
+				OnRightClick1=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",7,local:8)
+				OnRightClick2=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",9,local:10)
+				OnRightClick3=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",11,local:12)
+				>
+					<UIText name="ITEM_PRICE_TEXTFIELD" x=0 y=0 align=center valign=middle fontfamily="Special_Font" style=1 prototype=true  />
+					<UIFrame state=up		fill="b_p_normal.tga" />
+					<UIFrame state=down		fill="b_p_hover_pressed.tga" />
+					<UIFrame state=focused	fill="b_p_hover_pressed.tga" />
+					<UIFrame state=hilited	fill="b_p_hover.tga" />
+					<UIFrame state=hifocus	fill="b_p_hover_pressed.tga" />
+					<UIFrame state=disabled	fill="b_p_normal.tga" />
+				</UIButton>
+				<UIButton name="BuyPaneIconRed" x=0 y=0 style="STYLE_LOOT_ICON" prototype=true draggable=false
+				OnLeftClick0=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",5,local:6)
+				OnLeftClick1=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",7,local:8)
+				OnLeftClick2=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",9,local:10)
+				OnLeftClick3=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",11,local:12)
+				OnRightClick0=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",5,local:6)
+				OnRightClick1=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",7,local:8)
+				OnRightClick2=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",9,local:10)
+				OnRightClick3=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",11,local:12)			
+				>
+					<UIText align=right valign=bottom fontfamily="Default" style="2" color="red"/>
+				</UIButton>													
+				
+				<UIButton name="BuyPaneNameRed" x=40 y=0 width=198 height=40 style="STYLE_LOOT_TEXT" prototype=true draggable=false
+				OnLeftClick0=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",5,local:6)
+				OnLeftClick1=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",7,local:8)
+				OnLeftClick2=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",9,local:10)
+				OnLeftClick3=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",11,local:12)
+				OnRightClick0=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",5,local:6)
+				OnRightClick1=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",7,local:8)
+				OnRightClick2=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",9,local:10)
+				OnRightClick3=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",11,local:12)				
+				>
+					<UIText name="ITEM_TEXT_TEXTFIELD" x=10 y=0 indent=10 hangingindent=10 align=left valign=middle fontfamily="Body_Font" style=3 prototype=true color="red"/>
+					<UIFrame state=up		fill="b_i_normal.tga" />
+					<UIFrame state=down		fill="b_i_hover_pressed.tga" />
+					<UIFrame state=focused	fill="b_i_hover_pressed.tga" />
+					<UIFrame state=hilited	fill="b_i_hover.tga" />
+					<UIFrame state=hifocus	fill="b_i_hover_pressed.tga" />
+					<UIFrame state=disabled	fill="b_i_normal.tga" />
+				</UIButton>
+				<UIButton name="BuyPaneCostRed" x=238 y=0 width=74 height=40 style="STYLE_LOOT_TEXT" prototype=true draggable=false
+				OnLeftClick0=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",5,local:6)
+				OnLeftClick1=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",7,local:8)
+				OnLeftClick2=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",9,local:10)
+				OnLeftClick3=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",11,local:12)
+				OnRightClick0=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",5,local:6)
+				OnRightClick1=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",7,local:8)
+				OnRightClick2=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",9,local:10)
+				OnRightClick3=UIObject_Misc_ExtractData(selected:NS5_STORE_BUY,"string",11,local:12)
+				>
+					<UIText name="ITEM_PRICE_TEXTFIELD" x=0 y=0 align=center valign=middle fontfamily="Special_Font" style=1 prototype=true color="red"/>
+					<UIFrame state=up		fill="b_p_normal.tga" />
+					<UIFrame state=down		fill="b_p_hover_pressed.tga" />
+					<UIFrame state=focused	fill="b_p_hover_pressed.tga" />
+					<UIFrame state=hilited	fill="b_p_hover.tga" />
+					<UIFrame state=hifocus	fill="b_p_hover_pressed.tga" />
+					<UIFrame state=disabled	fill="b_p_normal.tga" />
+				</UIButton>
+		</UIPane>
+		<UIScrollBar name="SB" style="STYLE_SB_THIN"></UIScrollBar>
+	</UIListbox>
+
+	<!-- Background Image -->
+	<UIIcon name="BACKGROUND_TOP" img="store_top_bg.tga" x=10 y=8 width=340 height=90 />
+	<UIIcon name="BACKGROUND_BOTTOM" img="store_bottom_bg.tga" x=10 y=387 width=340 height=89 />
+	<UIIcon name="BACKGROUND" img="store_bg.tga" x=10 y=78 width=340 height=339 />
+	<UIFrame x=0 y=0 width=PARENT_WIDTH height=PARENT_HEIGHT topleft="frame1_tl.tga" topright="frame1_tr.tga" bottomleft="frame1_bl.tga"
+		bottomright="frame1_BR.tga" top="frame1_t.tga" bottom="frame1_b.tga"
+		left="frame1_l.tga" right="frame1_r.tga" border=32 />
