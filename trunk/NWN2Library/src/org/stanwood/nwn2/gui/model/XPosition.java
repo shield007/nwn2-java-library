@@ -7,17 +7,17 @@ import org.stanwood.nwn2.gui.parser.GUIParseException;
 /**
  * Used to store the X position of a scene
  */
-public class SceneX extends DimensionInteger {	
+public class XPosition extends DimensionInteger {	
 
-	private static final String  ALIGN_CENTER = "ALIGN_CENTER";
-	private static final String ALIGN_LEFT = "ALIGN_LEFT";
-	private static final String ALIGN_RIGHT = "ALIGN_RIGHT";	
+	public static final String  ALIGN_CENTER = "ALIGN_CENTER";
+	public static final String ALIGN_LEFT = "ALIGN_LEFT";
+	public static final String ALIGN_RIGHT = "ALIGN_RIGHT";	
 
 	/**
 	 * Used to create a instance of the object and parse the X position
 	 * @param value The X position of the screen
 	 */
-	public SceneX(int value) {
+	public XPosition(int value) {
 		super(value);
 	}
 	
@@ -26,8 +26,12 @@ public class SceneX extends DimensionInteger {
 	 * @param value The X position of the screen or "ALIGN_CENTER","ALIGN_LEFT","ALIGN_RIGHT" to align to the dimensions of the screen
 	 * @throws GUIParseException Thrown if their is a problem parsing the value
 	 */
-	public SceneX(String value) throws GUIParseException {
-		super(value,new String[] {ALIGN_CENTER,ALIGN_LEFT,ALIGN_RIGHT});				
+	public XPosition(String value) throws GUIParseException {
+		this(value,new String[] {ALIGN_CENTER,ALIGN_LEFT,ALIGN_RIGHT});				
+	}
+	
+	protected XPosition(String value, String[] allowedSpecialValues) throws GUIParseException {
+		super(value,allowedSpecialValues);
 	}
 
 	/**

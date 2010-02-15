@@ -28,7 +28,8 @@ public class UIFrame extends UIObject {
 	private Boolean mvright = false;
 	private Boolean mvleft = false;
 	private Boolean mhbottom = false;
-	private Boolean mhtop = false;	
+	private Boolean mhtop = false;
+	private String state;
 	
 	public UIFrame(NWN2GUIObject parent) {
 		super(parent);
@@ -226,6 +227,45 @@ public class UIFrame extends UIObject {
 		else {
 			return super.getWidth();
 		}
+	}
+
+	@Override
+	public XPosition getX() {
+		if (super.getX()==null) {
+			if (getParent() instanceof UIScene) {
+				return ((UIScene)getParent()).getX();
+			}
+			else {
+				return ((UIObject)getParent()).getX();
+			}	
+		}
+		else {
+			return super.getX();
+		}
+	}
+
+	@Override
+	public YPosition getY() {
+		if (super.getY()==null) {
+			if (getParent() instanceof UIScene) {
+				return ((UIScene)getParent()).getY();
+			}
+			else {
+				return ((UIObject)getParent()).getY();
+			}
+		}
+		else {
+			return super.getY();
+		}
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
 	}		
+
 	
 }

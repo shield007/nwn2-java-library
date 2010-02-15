@@ -7,8 +7,8 @@ import org.stanwood.nwn2.gui.model.ObjectX;
 import org.stanwood.nwn2.gui.model.ObjectY;
 import org.stanwood.nwn2.gui.model.Height;
 import org.stanwood.nwn2.gui.model.Width;
-import org.stanwood.nwn2.gui.model.SceneX;
-import org.stanwood.nwn2.gui.model.SceneY;
+import org.stanwood.nwn2.gui.model.XPosition;
+import org.stanwood.nwn2.gui.model.YPosition;
 import org.stanwood.nwn2.gui.model.UIObject;
 
 import edu.umd.cs.findbugs.annotations.NonNull;
@@ -45,11 +45,11 @@ public class AttributeValueFactory {
 		else if (type == Height.class ) {
 			return new Height(value);
 		}
-		else if (type == SceneX.class ) {
-			return new SceneX(value);
+		else if (type == XPosition.class ) {
+			return new XPosition(value);
 		}
-		else if (type == SceneY.class ) {
-			return new SceneY(value);
+		else if (type == YPosition.class ) {
+			return new YPosition(value);
 		}
 		else if (type == ObjectWidth.class ) {
 			if (!(obj instanceof UIObject)) {

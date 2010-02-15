@@ -6,7 +6,7 @@ public class DimensionInteger {
 
 	private String value;
 	
-	public DimensionInteger(String value, String[] allowedSpecialValues) throws GUIParseException {	
+	protected DimensionInteger(String value, String[] allowedSpecialValues) throws GUIParseException {	
 		try {
 			Integer.parseInt(value);
 		}
