@@ -28,6 +28,8 @@ public class UIObject extends NWN2GUIObject {
 	
 	
 	private Boolean scaleWithScene;
+	
+	private Boolean prototype;
 
 	/**
 	 * This tells the code to try and use some logic when this object gets
@@ -563,6 +565,16 @@ public class UIObject extends NWN2GUIObject {
 				
 			}
 		}
+	}
+
+
+	public Boolean getPrototype() {
+		return prototype;
+	}
+
+
+	public void setPrototype(Boolean prototype) {
+		this.prototype = prototype;
 	}
 
 

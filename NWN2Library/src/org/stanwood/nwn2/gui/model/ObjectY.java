@@ -30,7 +30,7 @@ public class ObjectY extends YPosition {
 	 * @throws GUIParseException Thrown if their is a problem parsing the value
 	 */
 	public ObjectY(String value,UIObject obj) throws GUIParseException {
-		super(value,new String[] {ALIGN_PARENT,ALIGN_CENTER,ALIGN_LEFT,ALIGN_RIGHT},obj);		
+		super(value,new String[] {ALIGN_PARENT,ALIGN_CENTER,ALIGN_TOP,ALIGN_BOTTOM},obj);		
 		this.obj = obj;
 	}
 
