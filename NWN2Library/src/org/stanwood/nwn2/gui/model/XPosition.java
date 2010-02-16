@@ -13,14 +13,17 @@ public class XPosition extends DimensionInteger {
 	
 	public static final String  ALIGN_CENTER = "ALIGN_CENTER";
 	public static final String ALIGN_LEFT = "ALIGN_LEFT";
-	public static final String ALIGN_RIGHT = "ALIGN_RIGHT";	
+	public static final String ALIGN_RIGHT = "ALIGN_RIGHT";
+
+	private NWN2GUIObject obj;	
 
 	/**
 	 * Used to create a instance of the object and parse the X position
 	 * @param value The X position of the screen
 	 */
-	public XPosition(int value) {
+	public XPosition(int value,NWN2GUIObject obj) {
 		super(value);
+		this.obj = obj;
 	}
 	
 	/**
@@ -28,12 +31,13 @@ public class XPosition extends DimensionInteger {
 	 * @param value The X position of the screen or "ALIGN_CENTER","ALIGN_LEFT","ALIGN_RIGHT" to align to the dimensions of the screen
 	 * @throws GUIParseException Thrown if their is a problem parsing the value
 	 */
-	public XPosition(String value) throws GUIParseException {
-		this(value,new String[] {ALIGN_CENTER,ALIGN_LEFT,ALIGN_RIGHT});				
+	public XPosition(String value,NWN2GUIObject obj) throws GUIParseException {
+		this(value,new String[] {ALIGN_CENTER,ALIGN_LEFT,ALIGN_RIGHT},obj);				
 	}
 	
-	protected XPosition(String value, String[] allowedSpecialValues) throws GUIParseException {
+	protected XPosition(String value, String[] allowedSpecialValues,NWN2GUIObject obj) throws GUIParseException {
 		super(value,allowedSpecialValues);
+		this.obj = obj;
 	}
 
 	/**
@@ -56,7 +60,13 @@ public class XPosition extends DimensionInteger {
 			return screenDimension.width - sceneWidth;
 		}
 		else {
-			return Integer.parseInt(value);
+			int i = Integer.parseInt(value);
+//			if (obj.getParent()!=null) {
+//				if (obj.getParent().getX()!=null) {					
+//					return obj.getParent().getX().getValue(screenDimension, scene) + i;
+//				}
+//			}
+			return i;			
 		}
 	}
 	

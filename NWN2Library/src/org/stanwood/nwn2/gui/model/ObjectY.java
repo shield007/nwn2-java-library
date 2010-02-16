@@ -19,7 +19,7 @@ public class ObjectY extends YPosition {
 	 * @param value The Y position of the screen
 	 */
 	public ObjectY(int value,UIObject obj) {
-		super(value);
+		super(value,obj);
 		this.obj = obj;
 	}
 	
@@ -30,7 +30,7 @@ public class ObjectY extends YPosition {
 	 * @throws GUIParseException Thrown if their is a problem parsing the value
 	 */
 	public ObjectY(String value,UIObject obj) throws GUIParseException {
-		super(value,new String[] {ALIGN_PARENT,ALIGN_CENTER,ALIGN_LEFT,ALIGN_RIGHT});		
+		super(value,new String[] {ALIGN_PARENT,ALIGN_CENTER,ALIGN_LEFT,ALIGN_RIGHT},obj);		
 		this.obj = obj;
 	}
 
