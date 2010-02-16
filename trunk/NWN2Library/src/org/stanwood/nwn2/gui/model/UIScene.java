@@ -22,8 +22,7 @@ import java.util.List;
 public class UIScene extends NWN2GUIObject {
 		
 	private static final long serialVersionUID = -7293893660358920395L;
-
-	private String name;
+	
 
 	/**
 	 * his determines where scenes fall in the render order, in terms of which scenes should cover up other scenes.<br/>
@@ -83,8 +82,8 @@ public class UIScene extends NWN2GUIObject {
 	
 	private Width width;
 	private Height height;	
-	private XPosition x = new XPosition(0);
-	private YPosition y = new YPosition(0);
+	private XPosition x = new XPosition(0,this);
+	private YPosition y = new YPosition(0,this);
 	
 	/**
 	 * This is the amount of time in seconds a scene should be up before it is automatically removed from view and unloaded from memory. If 0 or not set, then the scene will never be automatically removed from view. 
@@ -137,24 +136,7 @@ public class UIScene extends NWN2GUIObject {
 	public UIScene(NWN2GUIObject parent) {
 		super(parent);
 	}
-	
-	
-	/**
-	 * Used to get the scene name
-	 * @return The scene name
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * Used to set the scene name
-	 * @param name The scene name
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-
+		
 	public String getPriority() {
 		return priority;
 	}

@@ -12,7 +12,7 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-public class NWN2GUIObject implements Cloneable,Serializable {
+public abstract class NWN2GUIObject implements Cloneable,Serializable {
 
 	private static final long serialVersionUID = 698866204835685927L;
 
@@ -95,4 +95,8 @@ public class NWN2GUIObject implements Cloneable,Serializable {
 	public void setParent(UIObject uiObject) {
 		parent = uiObject;
 	}
+	
+	public abstract XPosition getX();
+	
+	public abstract YPosition getY();
 }

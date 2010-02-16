@@ -46,10 +46,10 @@ public class AttributeValueFactory {
 			return new Height(value);
 		}
 		else if (type == XPosition.class ) {
-			return new XPosition(value);
+			return new XPosition(value,obj);
 		}
 		else if (type == YPosition.class ) {
-			return new YPosition(value);
+			return new YPosition(value,obj);
 		}
 		else if (type == ObjectWidth.class ) {
 			if (!(obj instanceof UIObject)) {

@@ -266,7 +266,7 @@ public class UIObject extends NWN2GUIObject {
 	 * Used to get the X position of the object
 	 * @return The X position of the object
 	 */
-	public XPosition getX() {
+	public XPosition getX() {		
 		return x;
 	}
 
