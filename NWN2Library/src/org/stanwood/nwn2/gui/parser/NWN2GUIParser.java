@@ -52,7 +52,10 @@ public class NWN2GUIParser extends BasicNWN2GUIParser {
 	        CommonTree node = findGUIObjectByName(tree,"UIScene");	       	        
 	        scene = (UIScene) createGUIObject(node,null);
 	        
-	        addObjectsToParent(tree,scene);	        
+	    	for (int i=0;i<tree.getChildCount();i++) {
+	    		CommonTree child = (CommonTree) tree.getChild(i);
+	    		addObjectsToParent(child,scene);
+	    	}
 		}
 		catch (RecognitionException e) {
 			throw new GUIParseException("Unable to parse gui file",e);

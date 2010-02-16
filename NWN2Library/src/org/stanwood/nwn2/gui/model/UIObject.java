@@ -22,7 +22,7 @@ public class UIObject extends NWN2GUIObject {
 
 	private final static Log log = LogFactory.getLog(UIObject.class);
 	
-	private String name;
+	
 	private Boolean scaleWithScene;
 
 	/**
@@ -191,26 +191,7 @@ public class UIObject extends NWN2GUIObject {
 	}
 
 
-	/**
-	 * Used to get the name of the UIObject. This is used internally and
-	 * will be necessary for scripting to interact with this object in the
-	 * future.
-	 * @return The name of the UIObject 
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * Used to set the name of the UIObject. This is used internally and
-	 * will be necessary for scripting to interact with this object in the
-	 * future.
-	 * @param name The name of the UIObject 
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-
+	
 	/**
 	 * <p>
 	 * Used to get the if the UI Object will have its dimensions
@@ -573,15 +554,7 @@ public class UIObject extends NWN2GUIObject {
 	}
 
 
-	@Override
-	public String toString() {
-		if (getName()!=null) {
-			return getName();
-		}
-		else {
-			return super.toString();
-		}
-	}
+	
 	
 	
 }
