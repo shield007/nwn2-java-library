@@ -1,6 +1,6 @@
 package org.stanwood.nwn2.gui.model;
 
-public class UIFontBoldItalic extends UIFontFamily {
+public class UIFontBoldItalic extends UIFont {
 
 	private static final long serialVersionUID = -3339096927863589697L;
 
