@@ -8,9 +8,6 @@ import org.antlr.runtime.CharStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.tree.CommonTree;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.stanwood.nwn2.gui.model.NWN2GUIObject;
 import org.stanwood.nwn2.gui.model.UIScene;
 import org.stanwood.nwn2.gui.parser.antlr.NWN2GUIAntlrParser;
 import org.stanwood.nwn2.gui.parser.antlr.NWN2GUILexer;
@@ -21,8 +18,6 @@ import org.stanwood.nwn2.gui.parser.antlr.NWN2GUILexer;
  */
 public class NWN2GUIParser extends BasicNWN2GUIParser {
 
-	private final static Log log = LogFactory.getLog(NWN2GUIParser.class);
-		
 	private InputStream guiFile;
 	private UIScene scene;
 	
