@@ -9,6 +9,8 @@ import org.stanwood.nwn2.gui.parser.GUIParseException;
  */
 public class ObjectHeight extends Height {
 		
+	private static final long serialVersionUID = 6853470584181383233L;
+	
 	public static final String PARENT_HEIGHT = "PARENT_HEIGHT";	
 	private NWN2GUIObject obj;
 	

@@ -4,6 +4,8 @@ import org.stanwood.nwn2.gui.parser.GUIParseException;
 
 public class UIButton extends UIObject {
 
+	private static final long serialVersionUID = -3285622105853548564L;
+	
 	private String style;
 	private String buttonType;
 	private String mouseUpSFX;

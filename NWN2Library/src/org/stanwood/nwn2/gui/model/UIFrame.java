@@ -2,6 +2,8 @@ package org.stanwood.nwn2.gui.model;
 
 public class UIFrame extends UIObject {
 
+	private static final long serialVersionUID = 6138259845982821848L;
+
 	/**
 	 * This tells the engine to fill in the center space of the frame with the
 	 * fill texture using different algorithms. This attribute takes the

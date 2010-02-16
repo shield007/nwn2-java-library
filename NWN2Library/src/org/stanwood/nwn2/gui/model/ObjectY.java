@@ -8,7 +8,8 @@ import org.stanwood.nwn2.gui.parser.GUIParseException;
  * Used to store the Y position of a object
  */
 public class ObjectY extends YPosition {	
-	
+		
+	private static final long serialVersionUID = 3066895430215433086L;
 	
 	private static final String ALIGN_PARENT = "ALIGN_PARENT";
 	private UIObject obj;

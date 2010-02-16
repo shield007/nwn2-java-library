@@ -93,8 +93,7 @@ public class BasicNWN2GUIParser {
 				for (Method m : guiObject.getClass().getMethods()) {										
 					if (m.getName().equalsIgnoreCase("set"+key)) {
 						found = true;
-						Class<?>[] types = m.getParameterTypes();
-						
+						Class<?>[] types = m.getParameterTypes();						
 						Object value = AttributeValueFactory.getAttributeValue(guiObject,entry.getValue(),types[0]);
 						m.invoke(guiObject, value);
 						break;
