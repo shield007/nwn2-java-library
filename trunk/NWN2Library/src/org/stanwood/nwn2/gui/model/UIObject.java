@@ -2,6 +2,7 @@ package org.stanwood.nwn2.gui.model;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +20,9 @@ import edu.umd.cs.findbugs.annotations.Nullable;
  * <p>More info can be found at: <a href="http://oeiprogrammer.blogspot.com/2007/01/uiobject.html">http://oeiprogrammer.blogspot.com/2007/01/uiobject.html</a>
  */
 public class UIObject extends NWN2GUIObject {
+
+	private static final long serialVersionUID = 1892922831893614644L;
+
 
 	private final static Log log = LogFactory.getLog(UIObject.class);
 	
@@ -153,7 +157,7 @@ public class UIObject extends NWN2GUIObject {
 	 * like normal dragged objects, but rather is rendered when it would
 	 * normally be.
 	 */
-	private boolean dontRenderMouseGrab;
+	private Boolean dontRenderMouseGrab;
 
 	/**
 	 * This attribute can be used to tune the update rate of a UI Object. If a
@@ -386,11 +390,11 @@ public class UIObject extends NWN2GUIObject {
 		this.alpha = alpha;
 	}
 
-	public boolean isDontRenderMouseGrab() {
+	public Boolean isDontRenderMouseGrab() {
 		return dontRenderMouseGrab;
 	}
 
-	public void setDontRenderMouseGrab(boolean dontRenderMouseGrab) {
+	public void setDontRenderMouseGrab(Boolean dontRenderMouseGrab) {
 		this.dontRenderMouseGrab = dontRenderMouseGrab;
 	}
 
@@ -525,7 +529,7 @@ public class UIObject extends NWN2GUIObject {
 			for (Method m : styledObject.getClass().getMethods()) {
 				if (m.getName().startsWith("get") && !m.getName().equalsIgnoreCase("getprototype") &&
 					!m.getName().equalsIgnoreCase("getname") && !m.getName().equalsIgnoreCase("getclass") &&
-					!m.getName().equalsIgnoreCase("getchildren")) {
+					!m.getName().equalsIgnoreCase("getchildren") && !m.getName().equalsIgnoreCase("getparent") ) {
 					try {
 						Object value = m.invoke(styledObject);
 						if (value!=null) {
@@ -543,12 +547,20 @@ public class UIObject extends NWN2GUIObject {
 					} catch (IllegalArgumentException e) {
 						log.error(e.getMessage(),e);
 					} catch (IllegalAccessException e) {
-						log.error(e.getMessage(),e);
+						log.error(e.getMessage(),e);	
 					}
 				}
 			}
 			for (NWN2GUIObject child : styledObject.getChildren()) {
-				addChildObject(child);
+				NWN2GUIObject newChild;
+				try {
+					newChild = (NWN2GUIObject) child.clone();
+					newChild.setParent(this);
+					addChildObject(newChild);
+				} catch (CloneNotSupportedException e) {
+					log.error(e.getMessage(),e);
+				}
+				
 			}
 		}
 	}

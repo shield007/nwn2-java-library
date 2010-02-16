@@ -21,6 +21,8 @@ import java.util.List;
  */
 public class UIScene extends NWN2GUIObject {
 		
+	private static final long serialVersionUID = -7293893660358920395L;
+
 	private String name;
 
 	/**

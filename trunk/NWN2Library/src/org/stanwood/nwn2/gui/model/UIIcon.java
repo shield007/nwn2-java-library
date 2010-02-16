@@ -2,6 +2,8 @@ package org.stanwood.nwn2.gui.model;
 
 public class UIIcon extends UIObject {
 
+	private static final long serialVersionUID = -5660641001073877647L;
+	
 	private String img;
 	
 	public UIIcon(NWN2GUIObject parent) {

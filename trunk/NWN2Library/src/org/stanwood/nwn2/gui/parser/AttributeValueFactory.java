@@ -75,6 +75,6 @@ public class AttributeValueFactory {
 			}
 			return new ObjectY(value,(UIObject)obj);
 		}
-		throw new GUIParseException("Unkown attribute type '" + type.getName()+"'");
+		throw new GUIParseException("Unkown attribute type '" + type.getName()+"' for class '" + obj.getClass().getName()+"'");
 	}
 }

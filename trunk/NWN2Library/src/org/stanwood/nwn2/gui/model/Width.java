@@ -9,6 +9,8 @@ import org.stanwood.nwn2.gui.parser.GUIParseException;
  */
 public class Width extends DimensionInteger  {	
 	
+	private static final long serialVersionUID = -7992031735594779636L;
+	
 	public static final String SCREEN_WIDTH = "SCREEN_WIDTH";	
 
 	/**

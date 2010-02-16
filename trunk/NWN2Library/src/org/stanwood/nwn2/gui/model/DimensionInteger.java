@@ -1,9 +1,13 @@
 package org.stanwood.nwn2.gui.model;
 
+import java.io.Serializable;
+
 import org.stanwood.nwn2.gui.parser.GUIParseException;
 
-public class DimensionInteger {
+public class DimensionInteger implements Serializable {
 
+	private static final long serialVersionUID = -5588361374969356550L;
+	
 	private String value;
 	
 	protected DimensionInteger(String value, String[] allowedSpecialValues) throws GUIParseException {	

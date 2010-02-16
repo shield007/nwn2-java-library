@@ -9,6 +9,8 @@ import org.stanwood.nwn2.gui.parser.GUIParseException;
  */
 public class ObjectWidth extends Width {
 		
+	private static final long serialVersionUID = -3199258510744880190L;
+	
 	public static final String PARENT_WIDTH = "PARENT_WIDTH";	
 	private NWN2GUIObject obj;
 	

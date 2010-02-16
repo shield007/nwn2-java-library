@@ -9,6 +9,8 @@ import org.stanwood.nwn2.gui.parser.GUIParseException;
  */
 public class XPosition extends DimensionInteger {	
 
+	private static final long serialVersionUID = -1399324498834959044L;
+	
 	public static final String  ALIGN_CENTER = "ALIGN_CENTER";
 	public static final String ALIGN_LEFT = "ALIGN_LEFT";
 	public static final String ALIGN_RIGHT = "ALIGN_RIGHT";	
