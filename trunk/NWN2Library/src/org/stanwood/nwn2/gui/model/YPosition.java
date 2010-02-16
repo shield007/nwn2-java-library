@@ -12,8 +12,8 @@ public class YPosition extends DimensionInteger {
 	private static final long serialVersionUID = 7769822354751920700L;
 	
 	public static final String  ALIGN_CENTER = "ALIGN_CENTER";
-	public static final String ALIGN_LEFT = "ALIGN_LEFT";
-	public static final String ALIGN_RIGHT = "ALIGN_RIGHT";
+	public static final String ALIGN_TOP = "ALIGN_TOP";
+	public static final String ALIGN_BOTTOM = "ALIGN_BOTTOM";
 
 	private NWN2GUIObject obj;	
 
@@ -32,7 +32,7 @@ public class YPosition extends DimensionInteger {
 	 * @throws GUIParseException Thrown if their is a problem parsing the value
 	 */
 	public YPosition(String value,NWN2GUIObject obj) throws GUIParseException {
-		this(value,new String[] {ALIGN_CENTER,ALIGN_LEFT,ALIGN_RIGHT},obj);				
+		this(value,new String[] {ALIGN_CENTER,ALIGN_TOP,ALIGN_BOTTOM},obj);				
 	}
 	
 	protected YPosition(String value, String[] allowedSpecialValues,NWN2GUIObject obj) throws GUIParseException {
@@ -53,10 +53,10 @@ public class YPosition extends DimensionInteger {
 		if (value.equalsIgnoreCase(ALIGN_CENTER)) {
 			return (screenDimension.height / 2) - (sceneHeight / 2);
 		}
-		else if (value.equalsIgnoreCase(ALIGN_LEFT)) {
+		else if (value.equalsIgnoreCase(ALIGN_TOP)) {
 			return 0;
 		}
-		else if (value.equalsIgnoreCase(ALIGN_RIGHT)) {
+		else if (value.equalsIgnoreCase(ALIGN_BOTTOM)) {
 			return screenDimension.height - sceneHeight;
 		}
 		else {		

@@ -235,7 +235,8 @@ public class UIFrame extends UIObject {
 	public XPosition getX() {
 		if (super.getX()==null) {
 			if (getParent() instanceof UIScene) {
-				return ((UIScene)getParent()).getX();
+				return new XPosition(0,getParent() );
+				//return ((UIScene)getParent()).getX();
 			}
 			else {
 				return ((UIObject)getParent()).getX();
@@ -250,7 +251,7 @@ public class UIFrame extends UIObject {
 	public YPosition getY() {
 		if (super.getY()==null) {
 			if (getParent() instanceof UIScene) {
-				return ((UIScene)getParent()).getY();
+				return new YPosition(0,getParent() );
 			}
 			else {
 				return ((UIObject)getParent()).getY();

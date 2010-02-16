@@ -18,7 +18,7 @@ import org.stanwood.nwn2.gui.parser.antlr.NWN2GUILexer;
 public class GUIStyleSheetParser extends BasicNWN2GUIParser{
 
 	private InputStream guiFile;
-	private List<UIObject> uiObjects = new ArrayList<UIObject>();
+	private List<NWN2GUIObject> uiObjects = new ArrayList<NWN2GUIObject>();
 	
 	/**
 	 * Used to create a instance of the parse
@@ -56,7 +56,7 @@ public class GUIStyleSheetParser extends BasicNWN2GUIParser{
 									addObjectsToParent(child2,obj);
 								}
 							}
-							uiObjects.add((UIObject)obj);							
+							uiObjects.add(obj);							
 						}																			
 						break;
 					default:
@@ -74,7 +74,7 @@ public class GUIStyleSheetParser extends BasicNWN2GUIParser{
 		}
 	}
 	
-	public List<UIObject>getUIObjects() {
+	public List<NWN2GUIObject>getUIObjects() {
 		return uiObjects;
 	}
 }
