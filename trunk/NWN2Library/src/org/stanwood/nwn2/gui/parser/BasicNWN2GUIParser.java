@@ -19,16 +19,14 @@ public class BasicNWN2GUIParser {
 	private static final String OBJECT_PACKAGE = "org.stanwood.nwn2.gui.model.";
 	private final static Log log = LogFactory.getLog(BasicNWN2GUIParser.class);
 	
-	protected void addObjectsToParent(CommonTree tree,NWN2GUIObject parent) throws GUIParseException {		
-		for (int i=0;i<tree.getChildCount();i++) {
-			CommonTree child = (CommonTree) tree.getChild(i);
-			switch (child.getType()) {									
+	protected void addObjectsToParent(CommonTree tree,NWN2GUIObject parent) throws GUIParseException {				
+			switch (tree.getType()) {									
 				case NWN2GUIAntlrParser.TAG_CONTENTS:
-					String name = getGUIObjectName(child);
+					String name = getGUIObjectName(tree);
 					if (!name.equalsIgnoreCase("uiscene")) {						
-						NWN2GUIObject obj = createGUIObject(child,parent);
-						for (int j=0;j<child.getChildCount();j++) {
-							CommonTree child2 = (CommonTree) child.getChild(j);
+						NWN2GUIObject obj = createGUIObject(tree,parent);
+						for (int j=0;j<tree.getChildCount();j++) {
+							CommonTree child2 = (CommonTree) tree.getChild(j);
 							if (child2.getType() == NWN2GUIAntlrParser.TAG_CONTENTS) {
 								addObjectsToParent(child2,obj);
 							}
@@ -39,8 +37,9 @@ public class BasicNWN2GUIParser {
 				default:
 					// Do nothing
 			}
-		}
+		
 	}
+	
 	
 	protected NWN2GUIObject createGUIObject(CommonTree node,NWN2GUIObject parent) throws GUIParseException {
 		String name = getGUIObjectName(node);

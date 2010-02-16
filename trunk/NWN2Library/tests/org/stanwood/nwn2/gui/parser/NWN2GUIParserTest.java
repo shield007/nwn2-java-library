@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.stanwood.nwn2.gui.model.NWN2GUIObject;
 import org.stanwood.nwn2.gui.model.UIButton;
+import org.stanwood.nwn2.gui.model.UIGrid;
 import org.stanwood.nwn2.gui.model.UIIcon;
 import org.stanwood.nwn2.gui.model.UIScene;
 import org.stanwood.nwn2.gui.model.UIText;
@@ -38,9 +39,20 @@ public class NWN2GUIParserTest {
 		Assert.assertTrue(scene.getChildren().get(2) instanceof UIButton);
 		
 		UIButton button = (UIButton) scene.getChildren().get(2);
+		Assert.assertEquals("Check the button name","CloseButton",button.getName());
 		
-		Assert.assertEquals("Check number of children in button",11,button.getChildren().size());
-				
+		Assert.assertEquals("Check number of children in button",0,button.getChildren().size());
+		
+		Assert.assertTrue(scene.getChildren().get(3) instanceof UIGrid);
+		UIGrid grid = (UIGrid) scene.getChildren().get(3);
+		Assert.assertEquals("Check the button name","STORE_GRID",grid.getName());
+					
+		Assert.assertEquals("Check number of children in grid",5,grid.getChildren().size());
+		
+		
+		button = (UIButton) grid.getChildren().get(0);
+		Assert.assertEquals("Check name","STORE_ARMOR", button.getName());
+		Assert.assertEquals("Check number of children in grid",6,button.getChildren().size());
 		
 		
 	}
