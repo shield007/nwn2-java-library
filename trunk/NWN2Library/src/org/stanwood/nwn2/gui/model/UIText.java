@@ -11,7 +11,7 @@ public class UIText extends UIObject {
 	private Integer indent = 0;
 	private Integer hangingindent = 0;
 	private String text;
-	private String strref;
+	private Integer strref;
 	private String color;
 	private Boolean multiline = false;	
 	
@@ -75,11 +75,11 @@ public class UIText extends UIObject {
 		this.text = text;
 	}
 
-	public String getStrref() {
+	public Integer getStrRef() {
 		return strref;
 	}
 
-	public void setStrref(String strref) {
+	public void setStrRef(Integer strref) {
 		this.strref = strref;
 	}
 

@@ -20,16 +20,16 @@ public class UIFontFamily extends NWN2GUIObject {
 
 	public UIFont getFont(String style) {
 		for (NWN2GUIObject child : getChildren()) {
-			if (style.equalsIgnoreCase("normal") && child instanceof UIFontNormal) {
+			if ((style.equalsIgnoreCase("normal") || style.equals("1")) && child instanceof UIFontNormal) {
 				return (UIFont) child;
 			}
-			else if (style.equalsIgnoreCase("bold") && child instanceof UIFontBold) {
+			else if ((style.equalsIgnoreCase("bold") || style.equals("2")) && child instanceof UIFontBold) {
 				return (UIFont) child;
 			}
-			else if (style.equalsIgnoreCase("italic") && child instanceof UIFontItalic) {
+			else if ((style.equalsIgnoreCase("italic") || style.equals("3")) && child instanceof UIFontItalic) {
 				return (UIFont) child;
 			}
-			else if (style.equalsIgnoreCase("bolditalic") && child instanceof UIFontBoldItalic) {
+			else if ((style.equalsIgnoreCase("bolditalic") || style.equals("4")) && child instanceof UIFontBoldItalic) {
 				return (UIFont) child;
 			}
 		}

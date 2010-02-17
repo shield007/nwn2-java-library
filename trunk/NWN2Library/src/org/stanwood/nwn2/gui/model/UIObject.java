@@ -267,6 +267,7 @@ public class UIObject extends NWN2GUIObject {
 	 * Used to get the X position of the object
 	 * @return The X position of the object
 	 */
+	@Override
 	public XPosition getX() {		
 		return x;
 	}
@@ -283,6 +284,7 @@ public class UIObject extends NWN2GUIObject {
 	 * Used to get the Y position of the object
 	 * @return The Y position of the object
 	 */
+	@Override
 	public YPosition getY() {
 		return y;
 	}
