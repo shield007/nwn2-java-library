@@ -11,7 +11,9 @@ public class UIButton extends UIObject {
 	private String mouseUpSFX;
 	private String mouseDropSFX;
 	private String mouseDragSFX;	
-	private String disabledColor;	
+	private String disabledColor;
+	private Integer groupMemberId;
+	private Integer groupId;
 	
 	public UIButton(NWN2GUIObject parent) throws GUIParseException {
 		super(parent);
@@ -63,6 +65,23 @@ public class UIButton extends UIObject {
 
 	public void setDisabledColor(String disabledColor) {
 		this.disabledColor = disabledColor;
+	}
+
+	public Integer getGroupMemberId() {
+		return groupMemberId;
+	}
+
+	public void setGroupMemberId(Integer groupMemberId) {
+		this.groupMemberId = groupMemberId;
+	}
+
+	public Integer getGroupId() {
+		return groupId;
+	}
+
+	public void setGroupId(Integer groupId) {
+		this.groupId = groupId;
 	}	
+
 	
 }
