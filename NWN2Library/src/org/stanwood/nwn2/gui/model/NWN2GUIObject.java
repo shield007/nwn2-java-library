@@ -92,7 +92,7 @@ public abstract class NWN2GUIObject implements Cloneable,Serializable {
 		return ois.readObject();
 	}
 
-	public void setParent(UIObject uiObject) {
+	public void setParent(NWN2GUIObject uiObject) {
 		parent = uiObject;
 	}
 	

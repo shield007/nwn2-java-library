@@ -14,6 +14,8 @@ public class UIButton extends UIObject {
 	private String disabledColor;
 	private Integer groupMemberId;
 	private Integer groupId;
+	private Integer strRef;
+	private String text;
 	
 	public UIButton(NWN2GUIObject parent) throws GUIParseException {
 		super(parent);
@@ -81,6 +83,22 @@ public class UIButton extends UIObject {
 
 	public void setGroupId(Integer groupId) {
 		this.groupId = groupId;
+	}
+
+	public Integer getStrRef() {
+		return strRef;
+	}
+
+	public void setStrRef(Integer strRef) {
+		this.strRef = strRef;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
 	}	
 
 	
