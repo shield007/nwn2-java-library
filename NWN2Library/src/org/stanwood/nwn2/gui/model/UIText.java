@@ -7,7 +7,7 @@ public class UIText extends UIObject {
 	private String fontFamily;
 	private String valign;
 	private String align;
-	private String style;
+	private String style = "normal";
 	private Integer indent = 0;
 	private Integer hangingindent = 0;
 	private String text;
