@@ -1,3 +1,19 @@
+/*
+ *  Copyright (C) 2008  John-Paul.Stanford <dev@stanwood.org.uk>
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package org.stanwood.nwn2.gui.model;
 
 import java.awt.Dimension;
@@ -15,15 +31,12 @@ public class XPosition extends DimensionInteger {
 	public static final String ALIGN_LEFT = "ALIGN_LEFT";
 	public static final String ALIGN_RIGHT = "ALIGN_RIGHT";
 
-	private NWN2GUIObject obj;	
-
 	/**
 	 * Used to create a instance of the object and parse the X position
 	 * @param value The X position of the screen
 	 */
 	public XPosition(int value,NWN2GUIObject obj) {
-		super(value);
-		this.obj = obj;
+		super(value);		
 	}
 	
 	/**
@@ -36,8 +49,7 @@ public class XPosition extends DimensionInteger {
 	}
 	
 	protected XPosition(String value, String[] allowedSpecialValues,NWN2GUIObject obj) throws GUIParseException {
-		super(value,allowedSpecialValues);
-		this.obj = obj;
+		super(value,allowedSpecialValues);		
 	}
 
 	/**
