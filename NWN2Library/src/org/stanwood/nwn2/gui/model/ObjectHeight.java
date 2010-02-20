@@ -57,7 +57,6 @@ public class ObjectHeight extends Height {
 	@Override
 	public int getValue(Dimension screenDimension) {
 		String value = getStringValue();
-//		System.out.println(obj.getName() + " : " + value);
 		if (value.equalsIgnoreCase(PARENT_HEIGHT) || value.equalsIgnoreCase(DYNAMIC_HEIGHT)) {		
 			NWN2GUIObject parent = obj.getParent();						
 			if (parent instanceof UIScene) {

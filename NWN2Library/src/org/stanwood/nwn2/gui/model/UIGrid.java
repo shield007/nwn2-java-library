@@ -22,8 +22,8 @@ public class UIGrid extends UIObject {
 
 	private Integer rows;
 	private Integer columns;
-	private Integer yPadding = 0;
-	private Integer xPadding= 0;
+	private Integer YPadding = 0;
+	private Integer XPadding= 0;
 	
 	public UIGrid(NWN2GUIObject parent) {
 		super(parent);
@@ -45,20 +45,20 @@ public class UIGrid extends UIObject {
 		this.columns = columns;
 	}
 
-	public Integer getyPadding() {
-		return yPadding;
+	public Integer getYPadding() {
+		return YPadding;
 	}
 
-	public void setyPadding(Integer yPadding) {
-		this.yPadding = yPadding;
+	public void setYPadding(Integer yPadding) {
+		this.YPadding = yPadding;
 	}
 
-	public Integer getxPadding() {
-		return xPadding;
+	public Integer getXPadding() {
+		return XPadding;
 	}
 
-	public void setxPadding(Integer xPadding) {
-		this.xPadding = xPadding;
+	public void setXPadding(Integer xPadding) {
+		this.XPadding = xPadding;
 	}
 
 	

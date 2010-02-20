@@ -105,6 +105,7 @@ public class BasicNWN2GUIParser {
 				// TODO set callbacks
 			}
 			else {
+				key = key.replaceAll("_","" );
 				boolean found = false;
 				for (Method m : guiObject.getClass().getMethods()) {										
 					if (m.getName().equalsIgnoreCase("set"+key)) {
