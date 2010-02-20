@@ -35,7 +35,7 @@ public class YPosition extends DimensionInteger {
 	 * Used to create a instance of the object and parse the Y position
 	 * @param value The Y position of the screen
 	 */
-	public YPosition(int value,NWN2GUIObject obj) {
+	public YPosition(int value) {
 		super(value);
 	}
 	

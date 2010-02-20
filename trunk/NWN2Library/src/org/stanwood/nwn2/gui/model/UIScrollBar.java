@@ -19,9 +19,29 @@ package org.stanwood.nwn2.gui.model;
 public class UIScrollBar extends UIObject {
 
 	private static final long serialVersionUID = 4980646282713944389L;
-
+	
+	private String style;
+	private Boolean horizontal;
+	
 	public UIScrollBar(NWN2GUIObject parent) {
 		super(parent);
 	}
+	
+	public String getStyle() {
+		return style;
+	}
 
+	public void setStyle(String style) {
+		this.style = style;
+	}
+
+	public Boolean getHorizontal() {
+		return horizontal;
+	}
+
+	public void setHorizontal(Boolean horizontal) {
+		this.horizontal = horizontal;
+	}
+
+	
 }

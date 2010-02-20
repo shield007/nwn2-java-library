@@ -36,7 +36,11 @@ public class ObjectX extends XPosition {
 	 * @param value The X position of the screen
 	 */
 	public ObjectX(int value,UIObject obj) {
-		super(value,obj);
+		super(value);
+		setObject(obj);
+	}
+
+	void setObject(UIObject obj) {
 		this.obj = obj;
 	}
 	
@@ -48,7 +52,7 @@ public class ObjectX extends XPosition {
 	 */
 	public ObjectX(String value,UIObject obj) throws GUIParseException {
 		super(value,new String[] {ALIGN_PARENT,ALIGN_CENTER,ALIGN_LEFT,ALIGN_RIGHT},obj);		
-		this.obj = obj;
+		setObject(obj);
 	}
 
 	/**

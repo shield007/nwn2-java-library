@@ -20,8 +20,71 @@ public class UIListBox extends UIObject {
 
 	private static final long serialVersionUID = -4585373770701355889L;
 
+	private Integer yPadding;
+	private Boolean selectonleftclick;
+	private Integer xPadding;
+	private Boolean scrollbaronright;
+	private Boolean unequalcontrols;
+	private Boolean showpartialchild;
+	private Integer scrollsegmentsize;
+	
 	public UIListBox(NWN2GUIObject parent) {
 		super(parent);
 	}
 
+	public Integer getyPadding() {
+		return yPadding;
+	}
+
+	public void setyPadding(Integer yPadding) {
+		this.yPadding = yPadding;
+	}
+
+	public Boolean getSelectonleftclick() {
+		return selectonleftclick;
+	}
+
+	public void setSelectonleftclick(Boolean selectonleftclick) {
+		this.selectonleftclick = selectonleftclick;
+	}
+
+	public Integer getxPadding() {
+		return xPadding;
+	}
+
+	public void setxPadding(Integer xPadding) {
+		this.xPadding = xPadding;
+	}
+
+	public Boolean getScrollBarOnRight() {
+		return scrollbaronright;
+	}
+
+	public void setScrollbaronright(Boolean scrollbaronright) {
+		this.scrollbaronright = scrollbaronright;
+	}
+
+	public Boolean getUnequalcontrols() {
+		return unequalcontrols;
+	}
+
+	public void setUnequalcontrols(Boolean unequalcontrols) {
+		this.unequalcontrols = unequalcontrols;
+	}
+
+	public Boolean getShowpartialchild() {
+		return showpartialchild;
+	}
+
+	public void setShowpartialchild(Boolean showpartialchild) {
+		this.showpartialchild = showpartialchild;
+	}
+
+	public Integer getScrollsegmentsize() {
+		return scrollsegmentsize;
+	}
+
+	public void setScrollsegmentsize(Integer scrollsegmentsize) {
+		this.scrollsegmentsize = scrollsegmentsize;
+	}
 }

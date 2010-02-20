@@ -199,14 +199,14 @@ public class UIObject extends NWN2GUIObject {
 	public UIObject(NWN2GUIObject parent) {
 		super(parent);
 		try {
-			setDefaults();
+			defaults();
 		} catch (GUIParseException e) {
-			e.printStackTrace();
+			log.error(e.getMessage(),e);
 		}
 	}
 
 	
-	private void setDefaults() throws GUIParseException {
+	private void defaults() throws GUIParseException {
 		width =  new ObjectWidth(ObjectWidth.PARENT_WIDTH, this);
 		height =  new ObjectHeight(ObjectHeight.PARENT_HEIGHT, this);
 	}
@@ -574,12 +574,25 @@ public class UIObject extends NWN2GUIObject {
 				NWN2GUIObject newChild;
 				try {
 					newChild = (NWN2GUIObject) child.clone();
-					newChild.setParent(this);
+					newChild.setParent(this);					
 					addChildObject(newChild);
 				} catch (CloneNotSupportedException e) {
 					log.error(e.getMessage(),e);
 				}
 				
+			}
+			
+			if (width!=null) {
+				width.setObject(this);
+			}
+			if (height!=null) {
+				height.setObject(this);
+			}
+			if (x!=null) {
+				x.setObject(this);
+			}
+			if (y!=null) {
+				y.setObject(this);
 			}
 		}
 	}
@@ -589,13 +602,7 @@ public class UIObject extends NWN2GUIObject {
 		return prototype;
 	}
 
-
 	public void setPrototype(Boolean prototype) {
 		this.prototype = prototype;
-	}
-
-
-	
-	
-	
+	}	
 }

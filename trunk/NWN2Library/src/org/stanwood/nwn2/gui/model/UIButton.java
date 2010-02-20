@@ -32,6 +32,7 @@ public class UIButton extends UIObject {
 	private Integer groupId;
 	private Integer strRef;
 	private String text;
+	private String mouseDownSFX;
 	
 	public UIButton(NWN2GUIObject parent) throws GUIParseException {
 		super(parent);
@@ -115,7 +116,16 @@ public class UIButton extends UIObject {
 
 	public void setText(String text) {
 		this.text = text;
+	}
+
+	public String getMouseDownSFX() {
+		return mouseDownSFX;
+	}
+
+	public void setMouseDownSFX(String mouseDownSFX) {
+		this.mouseDownSFX = mouseDownSFX;
 	}	
 
+	
 	
 }
