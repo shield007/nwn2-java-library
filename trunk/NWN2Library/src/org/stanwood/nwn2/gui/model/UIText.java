@@ -22,14 +22,17 @@ public class UIText extends UIObject {
 
 	private String fontFamily;
 	private String valign;
-	private String align;
+	private String align;	
 	private String style = "normal";
 	private Integer indent = 0;
-	private Integer hangingindent = 0;
+	private Integer hangingIndent = 0;
 	private String text;
-	private Integer strref;
+	private Integer strRef;
 	private String color;
-	private Boolean multiline = false;	
+	private Boolean multiLine = false;
+	private Boolean upperCase;
+	private Integer maxLines;
+	private String halign;
 	
 	public UIText(NWN2GUIObject parent) {
 		super(parent);
@@ -75,12 +78,12 @@ public class UIText extends UIObject {
 		this.indent = indent;
 	}
 
-	public Integer getHangingindent() {
-		return hangingindent;
+	public Integer getHangingIndent() {
+		return hangingIndent;
 	}
 
-	public void setHangingindent(Integer hangingindent) {
-		this.hangingindent = hangingindent;
+	public void setHangingIndent(Integer hangingindent) {
+		this.hangingIndent = hangingindent;
 	}
 
 	public String getText() {
@@ -92,11 +95,11 @@ public class UIText extends UIObject {
 	}
 
 	public Integer getStrRef() {
-		return strref;
+		return strRef;
 	}
 
 	public void setStrRef(Integer strref) {
-		this.strref = strref;
+		this.strRef = strref;
 	}
 
 	public String getColor() {
@@ -107,13 +110,36 @@ public class UIText extends UIObject {
 		this.color = color;
 	}
 
-	public Boolean getMultiline() {
-		return multiline;
+	public Boolean getMultiLine() {
+		return multiLine;
 	}
 
-	public void setMultiline(Boolean multiline) {
-		this.multiline = multiline;
+	public void setMultiLine(Boolean multiline) {
+		this.multiLine = multiline;
 	}
 
-	
+	public Boolean getUpperCase() {
+		return upperCase;
+	}
+
+	public void setUpperCase(Boolean uppercase) {
+		this.upperCase = uppercase;
+	}
+
+	public Integer getMaxLines() {
+		return maxLines;
+	}
+
+	public void setMaxLines(Integer maxLines) {
+		this.maxLines = maxLines;
+	}
+
+	public String getHalign() {
+		return halign;
+	}
+
+	public void setHalign(String halign) {
+		this.halign = halign;
+	}
+
 }

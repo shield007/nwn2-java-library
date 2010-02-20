@@ -20,71 +20,82 @@ public class UIListBox extends UIObject {
 
 	private static final long serialVersionUID = -4585373770701355889L;
 
-	private Integer yPadding;
-	private Boolean selectonleftclick;
-	private Integer xPadding;
-	private Boolean scrollbaronright;
-	private Boolean unequalcontrols;
-	private Boolean showpartialchild;
-	private Integer scrollsegmentsize;
+	private Integer YPadding;
+	private Boolean selectonLeftClick;
+	private Integer XPadding;
+	private Boolean scrollBarOnRight;
+	private Boolean unequalControls;
+	private Boolean showPartialChild;
+	private Integer scrollSegmentSize;
+	private Boolean hideScrollBarWhenNotNeeded;
 	
 	public UIListBox(NWN2GUIObject parent) {
 		super(parent);
 	}
 
-	public Integer getyPadding() {
-		return yPadding;
+	public Integer getYPadding() {
+		return YPadding;
 	}
 
-	public void setyPadding(Integer yPadding) {
-		this.yPadding = yPadding;
+	public void setYPadding(Integer yPadding) {
+		YPadding = yPadding;
 	}
 
-	public Boolean getSelectonleftclick() {
-		return selectonleftclick;
+	public Boolean getSelectonLeftClick() {
+		return selectonLeftClick;
 	}
 
-	public void setSelectonleftclick(Boolean selectonleftclick) {
-		this.selectonleftclick = selectonleftclick;
+	public void setSelectonLeftClick(Boolean selectonLeftClick) {
+		this.selectonLeftClick = selectonLeftClick;
 	}
 
-	public Integer getxPadding() {
-		return xPadding;
+	public Integer getXPadding() {
+		return XPadding;
 	}
 
-	public void setxPadding(Integer xPadding) {
-		this.xPadding = xPadding;
+	public void setXPadding(Integer xPadding) {
+		XPadding = xPadding;
 	}
 
 	public Boolean getScrollBarOnRight() {
-		return scrollbaronright;
+		return scrollBarOnRight;
 	}
 
-	public void setScrollbaronright(Boolean scrollbaronright) {
-		this.scrollbaronright = scrollbaronright;
+	public void setScrollBarOnRight(Boolean scrollBarOnRight) {
+		this.scrollBarOnRight = scrollBarOnRight;
 	}
 
-	public Boolean getUnequalcontrols() {
-		return unequalcontrols;
+	public Boolean getUnequalControls() {
+		return unequalControls;
 	}
 
-	public void setUnequalcontrols(Boolean unequalcontrols) {
-		this.unequalcontrols = unequalcontrols;
+	public void setUnequalControls(Boolean unequalControls) {
+		this.unequalControls = unequalControls;
 	}
 
-	public Boolean getShowpartialchild() {
-		return showpartialchild;
+	public Boolean getShowPartialChild() {
+		return showPartialChild;
 	}
 
-	public void setShowpartialchild(Boolean showpartialchild) {
-		this.showpartialchild = showpartialchild;
+	public void setShowPartialChild(Boolean showPartialChild) {
+		this.showPartialChild = showPartialChild;
 	}
 
-	public Integer getScrollsegmentsize() {
-		return scrollsegmentsize;
+	public Integer getScrollSegmentSize() {
+		return scrollSegmentSize;
 	}
 
-	public void setScrollsegmentsize(Integer scrollsegmentsize) {
-		this.scrollsegmentsize = scrollsegmentsize;
+	public void setScrollSegmentSize(Integer scrollSegmentSize) {
+		this.scrollSegmentSize = scrollSegmentSize;
 	}
+
+	public Boolean getHideScrollBarWhenNotNeeded() {
+		return hideScrollBarWhenNotNeeded;
+	}
+
+	public void setHideScrollBarWhenNotNeeded(Boolean hideScrollBarWhenNotNeeded) {
+		this.hideScrollBarWhenNotNeeded = hideScrollBarWhenNotNeeded;
+	}
+
+	
 }
