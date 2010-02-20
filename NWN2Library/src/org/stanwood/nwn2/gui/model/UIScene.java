@@ -96,10 +96,12 @@ public class UIScene extends NWN2GUIObject {
 	 */
 	private Boolean fullscreen;
 	
+	private Boolean update;
+	
 	private Width width;
 	private Height height;	
-	private XPosition x = new XPosition(0,this);
-	private YPosition y = new YPosition(0,this);
+	private XPosition x = new XPosition(0);
+	private YPosition y = new YPosition(0);
 	
 	/**
 	 * This is the amount of time in seconds a scene should be up before it is automatically removed from view and unloaded from memory. If 0 or not set, then the scene will never be automatically removed from view. 
@@ -267,6 +269,7 @@ public class UIScene extends NWN2GUIObject {
 	 * If the GUI XML file did not specify a X origin, then "0" is returned.
 	 * @return The X origin of the scene 
 	 */			
+	@Override
 	public XPosition getX() {
 		return x;
 	}
@@ -284,6 +287,7 @@ public class UIScene extends NWN2GUIObject {
 	 * If the GUI XML file did not specify a Y origin, then "0" is returned.
 	 * @return The Y origin of the scene 
 	 */
+	@Override
 	public YPosition getY() {	
 		return y;
 	}
@@ -426,6 +430,14 @@ public class UIScene extends NWN2GUIObject {
 	
 	public List<Callback> getOnUnhandledMouseClick() {
 		return  onUnhandledMouseClick;
+	}
+
+	public Boolean getUpdate() {
+		return update;
+	}
+
+	public void setUpdate(Boolean update) {
+		this.update = update;
 	}
 	
 	

@@ -35,7 +35,7 @@ public class XPosition extends DimensionInteger {
 	 * Used to create a instance of the object and parse the X position
 	 * @param value The X position of the screen
 	 */
-	public XPosition(int value,NWN2GUIObject obj) {
+	public XPosition(int value) {
 		super(value);		
 	}
 	

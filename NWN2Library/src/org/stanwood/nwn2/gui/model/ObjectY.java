@@ -35,7 +35,11 @@ public class ObjectY extends YPosition {
 	 * @param value The Y position of the screen
 	 */
 	public ObjectY(int value,UIObject obj) {
-		super(value,obj);
+		super(value);
+		setObject(obj);
+	}
+
+	void setObject(UIObject obj) {
 		this.obj = obj;
 	}
 	
@@ -47,7 +51,7 @@ public class ObjectY extends YPosition {
 	 */
 	public ObjectY(String value,UIObject obj) throws GUIParseException {
 		super(value,new String[] {ALIGN_PARENT,ALIGN_CENTER,ALIGN_TOP,ALIGN_BOTTOM},obj);		
-		this.obj = obj;
+		setObject(obj);
 	}
 
 	/**
@@ -58,6 +62,7 @@ public class ObjectY extends YPosition {
 	 * @param screenDimension The dimensions of the screen
 	 * @return The Y position of the object
 	 */
+	@Override
 	public int getValue(Dimension screenDimension,UIScene scene) {
 		String value = getStringValue();
 		if (value.equalsIgnoreCase(ALIGN_PARENT)) {

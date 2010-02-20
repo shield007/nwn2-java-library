@@ -39,7 +39,11 @@ public class ObjectHeight extends Height {
 	 */
 	public ObjectHeight(String value,UIObject obj) throws GUIParseException {
 		super(value,new String[] {SCREEN_HEIGHT,PARENT_HEIGHT});
-		this.obj = obj;
+		setObject(obj);
+	}
+
+	void setObject(UIObject obj) {
+		this.obj = obj;		
 	}
 
 	/**
@@ -49,14 +53,20 @@ public class ObjectHeight extends Height {
 	 * @param screenDimension The dimensions of the screen
 	 * @return The height of the scene
 	 */
+	@Override
 	public int getValue(Dimension screenDimension) {
 		String value = getStringValue();
+//		System.out.println(obj.getName() + " : " + value);
 		if (value.equalsIgnoreCase(PARENT_HEIGHT)) {		
-			NWN2GUIObject parent = obj.getParent();
+			NWN2GUIObject parent = obj.getParent();						
 			if (parent instanceof UIScene) {
 				return ((UIScene)parent).getHeight().getValue(screenDimension);
 			}
 			else {
+				if (parent==null) {
+					System.out.println("Object has no parent: " + obj.getName() +" : " + obj.getClass());
+					throw new RuntimeException("Object has no parent: " + obj.getName() +" : " + obj.getClass());					
+				}				
 				return ((UIObject)parent).getHeight().getValue(screenDimension);
 			}			
 		}

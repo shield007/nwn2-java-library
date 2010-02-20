@@ -39,8 +39,12 @@ public class ObjectWidth extends Width {
 	 */
 	public ObjectWidth(String value,UIObject obj) throws GUIParseException {
 		super(value,new String[] {SCREEN_WIDTH,PARENT_WIDTH});
-		this.obj = obj;
+		setObject(obj);
 	}
+
+	void setObject(UIObject obj) {
+		this.obj = obj;
+	}	
 
 	/**
 	 * Used to get the object width as a integer. If "SCREEN_WIDTH" was given as the width value,
@@ -49,6 +53,7 @@ public class ObjectWidth extends Width {
 	 * @param screenDimension The dimensions of the screen
 	 * @return The width of the scene
 	 */
+	@Override
 	public int getValue(Dimension screenDimension) {
 		String value = getStringValue();
 		if (value.equalsIgnoreCase(PARENT_WIDTH)) {		
@@ -57,6 +62,9 @@ public class ObjectWidth extends Width {
 				return ((UIScene)parent).getWidth().getValue(screenDimension);
 			}
 			else {
+				if (parent==null) {
+					throw new RuntimeException("Object has no parent: " + obj.getName() +" : " + obj.getClass());					
+				}
 				return ((UIObject)parent).getWidth().getValue(screenDimension);
 			}			
 		}
