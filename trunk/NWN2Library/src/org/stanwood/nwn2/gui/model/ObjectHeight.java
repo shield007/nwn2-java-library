@@ -28,6 +28,7 @@ public class ObjectHeight extends Height {
 	private static final long serialVersionUID = 6853470584181383233L;
 	
 	public static final String PARENT_HEIGHT = "PARENT_HEIGHT";	
+	public static final String DYNAMIC_HEIGHT = "DYNAMIC";
 	private NWN2GUIObject obj;
 	
 
@@ -38,7 +39,7 @@ public class ObjectHeight extends Height {
 	 * @throws GUIParseException Thrown if their is a problem parsing the value
 	 */
 	public ObjectHeight(String value,UIObject obj) throws GUIParseException {
-		super(value,new String[] {SCREEN_HEIGHT,PARENT_HEIGHT});
+		super(value,new String[] {SCREEN_HEIGHT,PARENT_HEIGHT,DYNAMIC_HEIGHT});
 		setObject(obj);
 	}
 
@@ -57,7 +58,7 @@ public class ObjectHeight extends Height {
 	public int getValue(Dimension screenDimension) {
 		String value = getStringValue();
 //		System.out.println(obj.getName() + " : " + value);
-		if (value.equalsIgnoreCase(PARENT_HEIGHT)) {		
+		if (value.equalsIgnoreCase(PARENT_HEIGHT) || value.equalsIgnoreCase(DYNAMIC_HEIGHT)) {		
 			NWN2GUIObject parent = obj.getParent();						
 			if (parent instanceof UIScene) {
 				return ((UIScene)parent).getHeight().getValue(screenDimension);
