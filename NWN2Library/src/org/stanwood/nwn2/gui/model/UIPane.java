@@ -22,6 +22,7 @@ public class UIPane extends UIObject {
 
 	private Boolean hideOverride;
 	private Boolean tupple;
+	private Boolean useScalar;
 	
 	public UIPane(NWN2GUIObject parent) {
 		super(parent);
@@ -41,5 +42,13 @@ public class UIPane extends UIObject {
 
 	public void setTupple(Boolean tupple) {
 		this.tupple = tupple;
+	}
+
+	public Boolean getUseScalar() {
+		return useScalar;
+	}
+
+	public void setUseScalar(Boolean useScalar) {
+		this.useScalar = useScalar;
 	}
 }
