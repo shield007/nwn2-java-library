@@ -20,8 +20,19 @@ public class UIProgressBar extends UIObject {
 
 	private static final long serialVersionUID = 2251044255722363345L;
 
+	private String img;
+	
 	public UIProgressBar(NWN2GUIObject parent) {
 		super(parent);
 	}
 
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
+	
 }

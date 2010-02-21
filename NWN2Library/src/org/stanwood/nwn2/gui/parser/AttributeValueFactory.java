@@ -16,16 +16,16 @@
  */
 package org.stanwood.nwn2.gui.parser;
 
+import org.stanwood.nwn2.gui.model.Height;
 import org.stanwood.nwn2.gui.model.NWN2GUIObject;
 import org.stanwood.nwn2.gui.model.ObjectHeight;
 import org.stanwood.nwn2.gui.model.ObjectWidth;
 import org.stanwood.nwn2.gui.model.ObjectX;
 import org.stanwood.nwn2.gui.model.ObjectY;
-import org.stanwood.nwn2.gui.model.Height;
+import org.stanwood.nwn2.gui.model.UIObject;
 import org.stanwood.nwn2.gui.model.Width;
 import org.stanwood.nwn2.gui.model.XPosition;
 import org.stanwood.nwn2.gui.model.YPosition;
-import org.stanwood.nwn2.gui.model.UIObject;
 
 import edu.umd.cs.findbugs.annotations.NonNull;
 
@@ -36,61 +36,67 @@ public class AttributeValueFactory {
 
 	/**
 	 * This will return a parsed value of the given type
+	 * @param attributeName Name of the attribute
 	 * @param value The value to parse
 	 * @param type The type it should be
 	 * @return The parsed value of the given type
 	 * @throws GUIParseException Thrown if their is a problem parsing it.
 	 */
 	@NonNull
-	public static Object getAttributeValue(NWN2GUIObject obj,String value, Class<?> type) throws GUIParseException {
-		if (type == String.class){
-			return value;
-		}
-		else if (type == Boolean.class) {
-			return Boolean.parseBoolean(value);
-		}
-		else if (type == Integer.class ) {
-			return Integer.parseInt(value);
-		}
-		else if (type == Float.class ) {
-			return Float.parseFloat(value);
-		}
-		else if (type == Width.class ) {
-			return new Width(value);
-		}
-		else if (type == Height.class ) {
-			return new Height(value);
-		}
-		else if (type == XPosition.class ) {
-			return new XPosition(value,obj);
-		}
-		else if (type == YPosition.class ) {
-			return new YPosition(value,obj);
-		}
-		else if (type == ObjectWidth.class ) {
-			if (!(obj instanceof UIObject)) {
-				throw new GUIParseException(type.getName()+" can't be used with " + obj.getClass().getName());
+	public static Object getAttributeValue(String attributeName,NWN2GUIObject obj,String value, Class<?> type) throws GUIParseException {
+		try {
+			if (type == String.class){
+				return value;
 			}
-			return new ObjectWidth(value,(UIObject)obj);
-		}
-		else if (type == ObjectHeight.class ) {
-			if (!(obj instanceof UIObject)) {
-				throw new GUIParseException(type.getName()+" can't be used with " + obj.getClass().getName());
+			else if (type == Boolean.class) {
+				return Boolean.parseBoolean(value);
 			}
-			return new ObjectHeight(value,(UIObject)obj);
-		}
-		else if (type == ObjectX.class ) {
-			if (!(obj instanceof UIObject)) {
-				throw new GUIParseException(type.getName()+" can't be used with " + obj.getClass().getName());
+			else if (type == Integer.class ) {
+				return Integer.parseInt(value);
 			}
-			return new ObjectX(value,(UIObject)obj);
-		}
-		else if (type == ObjectY.class ) {
-			if (!(obj instanceof UIObject)) {
-				throw new GUIParseException(type.getName()+" can't be used with " + obj.getClass().getName());
+			else if (type == Float.class ) {
+				return Float.parseFloat(value);
 			}
-			return new ObjectY(value,(UIObject)obj);
+			else if (type == Width.class ) {
+				return new Width(value);
+			}
+			else if (type == Height.class ) {
+				return new Height(value);
+			}
+			else if (type == XPosition.class ) {
+				return new XPosition(value,obj);
+			}
+			else if (type == YPosition.class ) {
+				return new YPosition(value,obj);
+			}
+			else if (type == ObjectWidth.class ) {
+				if (!(obj instanceof UIObject)) {
+					throw new GUIParseException(type.getName()+" can't be used with " + obj.getClass().getName());
+				}
+				return new ObjectWidth(value,(UIObject)obj);
+			}
+			else if (type == ObjectHeight.class ) {
+				if (!(obj instanceof UIObject)) {
+					throw new GUIParseException(type.getName()+" can't be used with " + obj.getClass().getName());
+				}
+				return new ObjectHeight(value,(UIObject)obj);
+			}
+			else if (type == ObjectX.class ) {
+				if (!(obj instanceof UIObject)) {
+					throw new GUIParseException(type.getName()+" can't be used with " + obj.getClass().getName());
+				}
+				return new ObjectX(value,(UIObject)obj);
+			}
+			else if (type == ObjectY.class ) {
+				if (!(obj instanceof UIObject)) {
+					throw new GUIParseException(type.getName()+" can't be used with " + obj.getClass().getName());
+				}
+				return new ObjectY(value,(UIObject)obj);
+			}
+			throw new GUIParseException("Unkown attribute type '" + type.getName()+"' for class '" + obj.getClass().getName()+"'");
 		}
-		throw new GUIParseException("Unkown attribute type '" + type.getName()+"' for class '" + obj.getClass().getName()+"'");
+		catch (NumberFormatException e) {
+			throw new GUIParseException("Unable to parse attribute '"+attributeName+"' value '"+value+"' for class '" + obj.getClass().getName()+"'",e);
+		}
 	}
 }
