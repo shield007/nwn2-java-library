@@ -21,6 +21,7 @@ public class UIIcon extends UIObject {
 	private static final long serialVersionUID = -5660641001073877647L;
 	
 	private String img;
+	private String color;
 	
 	public UIIcon(NWN2GUIObject parent) {
 		super(parent);
@@ -42,7 +43,11 @@ public class UIIcon extends UIObject {
 		this.img = img;
 	}
 
-	
+	public String getColor() {
+		return color;
+	}
 
-	
+	public void setColor(String color) {
+		this.color = color;
+	}	
 }

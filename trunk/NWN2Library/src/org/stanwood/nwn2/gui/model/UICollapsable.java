@@ -16,12 +16,58 @@
  */
 package org.stanwood.nwn2.gui.model;
 
+
 public class UICollapsable extends UIObject {
 
 	private static final long serialVersionUID = 8286944259009793580L;
-
+	
+	private Integer indent;
+	private Integer YPadding;
+	private Integer XPadding;
+	private Boolean collapseLock;
+	private Boolean isExpanded;	
+	
 	public UICollapsable(NWN2GUIObject parent) {
-		super(parent);
+		super(parent);		
 	}
 
+	public Integer getIndent() {
+		return indent;
+	}
+
+	public void setIndent(Integer indent) {
+		this.indent = indent;
+	}
+
+	public Integer getYPadding() {
+		return YPadding;
+	}
+
+	public void setYPadding(Integer yPadding) {
+		YPadding = yPadding;
+	}
+
+	public Integer getXPadding() {
+		return XPadding;
+	}
+
+	public void setXPadding(Integer xPadding) {
+		XPadding = xPadding;
+	}
+
+	public Boolean getCollapseLock() {
+		return collapseLock;
+	}
+
+	public void setCollapseLock(Boolean collapseLock) {
+		this.collapseLock = collapseLock;
+	}
+
+	public Boolean getIsExpanded() {
+		return isExpanded;
+	}
+
+	public void setIsExpanded(Boolean isExpanded) {
+		this.isExpanded = isExpanded;
+	}
 }

@@ -105,13 +105,13 @@ public class BasicNWN2GUIParser {
 				// TODO set callbacks
 			}
 			else {
-				key = key.replaceAll("_","" );
+				String methodName = "set"+key.replaceAll("_","" );
 				boolean found = false;
 				for (Method m : guiObject.getClass().getMethods()) {										
-					if (m.getName().equalsIgnoreCase("set"+key)) {
+					if (m.getName().equalsIgnoreCase(methodName)) {
 						found = true;
 						Class<?>[] types = m.getParameterTypes();						
-						Object value = AttributeValueFactory.getAttributeValue(guiObject,entry.getValue(),types[0]);
+						Object value = AttributeValueFactory.getAttributeValue(key,guiObject,entry.getValue(),types[0]);
 						m.invoke(guiObject, value);
 						break;
 					}

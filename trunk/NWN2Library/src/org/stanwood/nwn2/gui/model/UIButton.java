@@ -34,6 +34,7 @@ public class UIButton extends UIObject {
 	private String text;
 	private String mouseDownSFX;
 	private Boolean repeatCallBack;
+	private Boolean header;
 	
 	public UIButton(NWN2GUIObject parent) throws GUIParseException {
 		super(parent);
@@ -133,6 +134,15 @@ public class UIButton extends UIObject {
 
 	public void setRepeatCallBack(Boolean repeatCallBack) {
 		this.repeatCallBack = repeatCallBack;
+	}
+
+	public Boolean getHeader() {
+		return header;
+	}
+
+	public void setHeader(Boolean header) {
+		this.header = header;
 	}	
 
+	
 }

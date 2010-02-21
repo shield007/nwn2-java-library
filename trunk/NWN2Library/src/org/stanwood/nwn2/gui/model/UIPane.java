@@ -20,8 +20,26 @@ public class UIPane extends UIObject {
 
 	private static final long serialVersionUID = 7063557647738750321L;
 
+	private Boolean hideOverride;
+	private Boolean tupple;
+	
 	public UIPane(NWN2GUIObject parent) {
 		super(parent);
 	}
 
+	public Boolean getHideOverride() {
+		return hideOverride;
+	}
+
+	public void setHideOverride(Boolean hideOverride) {
+		this.hideOverride = hideOverride;
+	}
+
+	public Boolean getTupple() {
+		return tupple;
+	}
+
+	public void setTupple(Boolean tupple) {
+		this.tupple = tupple;
+	}
 }

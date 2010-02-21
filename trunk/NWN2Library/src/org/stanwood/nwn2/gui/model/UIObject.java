@@ -164,7 +164,7 @@ public class UIObject extends NWN2GUIObject {
 	/**
 	 * How transparent this object should be by default.
 	 */
-	private Integer alpha;
+	private Float alpha;
 
 	/**
 	 * 'Mouse Grab' means item being currently dragged. Normally the mouse grab
@@ -401,11 +401,11 @@ public class UIObject extends NWN2GUIObject {
 		this.defaultTooltip = defaultTooltip;
 	}
 
-	public Integer getAlpha() {
+	public Float getAlpha() {
 		return alpha;
 	}
 
-	public void setAlpha(Integer alpha) {
+	public void setAlpha(Float alpha) {
 		this.alpha = alpha;
 	}
 
