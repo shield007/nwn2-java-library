@@ -61,7 +61,14 @@ public class YPosition extends DimensionInteger {
 	 */
 	public int getValue(Dimension screenDimension,UIScene scene) {
 		String value = getStringValue();
-		int sceneHeight = scene.getHeight().getValue(screenDimension);
+		int sceneHeight = 0;
+		if (scene.getFullscreen()) {
+			sceneHeight = screenDimension.height;
+		}
+		else {
+			sceneHeight = scene.getHeight().getValue(screenDimension);
+		}
+		
 		if (value.equalsIgnoreCase(ALIGN_CENTER)) {
 			return (screenDimension.height / 2) - (sceneHeight / 2);
 		}

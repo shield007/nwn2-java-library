@@ -23,6 +23,7 @@ public class UIPane extends UIObject {
 	private Boolean hideOverride;
 	private Boolean tupple;
 	private Boolean useScalar;
+	private Boolean captureMouseEvents;
 	
 	public UIPane(NWN2GUIObject parent) {
 		super(parent);
@@ -51,4 +52,14 @@ public class UIPane extends UIObject {
 	public void setUseScalar(Boolean useScalar) {
 		this.useScalar = useScalar;
 	}
+
+	public Boolean getCaptureMouseEvents() {
+		return captureMouseEvents;
+	}
+
+	public void setCaptureMouseEvents(Boolean captureMouseEvents) {
+		this.captureMouseEvents = captureMouseEvents;
+	}
+	
+	
 }

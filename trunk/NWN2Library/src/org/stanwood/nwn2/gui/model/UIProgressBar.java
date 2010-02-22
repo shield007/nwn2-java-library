@@ -21,6 +21,7 @@ public class UIProgressBar extends UIObject {
 	private static final long serialVersionUID = 2251044255722363345L;
 
 	private String img;
+	private Boolean vertical;
 	
 	public UIProgressBar(NWN2GUIObject parent) {
 		super(parent);
@@ -34,5 +35,11 @@ public class UIProgressBar extends UIObject {
 		this.img = img;
 	}
 
-	
+	public Boolean getVertical() {
+		return vertical;
+	}
+
+	public void setVertical(Boolean vertical) {
+		this.vertical = vertical;
+	}
 }

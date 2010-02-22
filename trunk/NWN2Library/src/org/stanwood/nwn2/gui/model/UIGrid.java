@@ -24,6 +24,7 @@ public class UIGrid extends UIObject {
 	private Integer columns;
 	private Integer YPadding = 0;
 	private Integer XPadding= 0;
+	private Boolean captureMouseEvents;
 	
 	public UIGrid(NWN2GUIObject parent) {
 		super(parent);
@@ -61,5 +62,12 @@ public class UIGrid extends UIObject {
 		this.XPadding = xPadding;
 	}
 
-	
+	public Boolean getCaptureMouseEvents() {
+		return captureMouseEvents;
+	}
+
+	public void setCaptureMouseEvents(Boolean captureMouseEvents) {
+		this.captureMouseEvents = captureMouseEvents;
+	}
+
 }

@@ -35,6 +35,7 @@ public class UIButton extends UIObject {
 	private String mouseDownSFX;
 	private Boolean repeatCallBack;
 	private Boolean header;
+	private Boolean captureMouseEvents;
 	
 	public UIButton(NWN2GUIObject parent) throws GUIParseException {
 		super(parent);
@@ -142,6 +143,14 @@ public class UIButton extends UIObject {
 
 	public void setHeader(Boolean header) {
 		this.header = header;
+	}
+
+	public Boolean getCaptureMouseEvents() {
+		return captureMouseEvents;
+	}
+
+	public void setCaptureMouseEvents(Boolean captureMouseEvents) {
+		this.captureMouseEvents = captureMouseEvents;
 	}	
 
 	
