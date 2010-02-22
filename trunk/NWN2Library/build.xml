@@ -124,7 +124,7 @@
 				<path refid="compile.libs"/>
         	</classpath>
         	
-        	<doctitle><![CDATA[<h1>]]>${ant.project.name} ${project.version}<![CDATA[Pod Caster</h1>]]></doctitle>
+        	<doctitle><![CDATA[<h1>]]>${ant.project.name} ${project.version}<![CDATA[</h1>]]></doctitle>
         </javadoc>
 	</target>
 
