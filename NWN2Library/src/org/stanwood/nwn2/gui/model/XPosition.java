@@ -60,8 +60,14 @@ public class XPosition extends DimensionInteger {
 	 * @return The X position of the scene
 	 */
 	public int getValue(Dimension screenDimension,UIScene scene) {
-		String value = getStringValue();
-		int sceneWidth = scene.getWidth().getValue(screenDimension);
+		String value = getStringValue();						
+		int sceneWidth = 0;
+		if (scene.getFullscreen()) {
+			sceneWidth = screenDimension.width;
+		}
+		else {
+			sceneWidth = scene.getWidth().getValue(screenDimension);
+		}
 		if (value.equalsIgnoreCase(ALIGN_CENTER)) {
 			return (screenDimension.width / 2) - (sceneWidth / 2);
 		}
