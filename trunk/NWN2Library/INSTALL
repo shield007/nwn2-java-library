@@ -1,3 +1,10 @@
+How to install
+----=---------
+
+To use NWN2Library with your application, place the nwn2library.jar on the 
+class path along with the required libraries and make sure that your using 
+java 1.6.
+
 Requirements
 ------------
 
