@@ -22,6 +22,7 @@ public class UIIcon extends UIObject {
 	
 	private String img;
 	private String color;
+	private String fillStyle;
 	
 	public UIIcon(NWN2GUIObject parent) {
 		super(parent);
@@ -49,5 +50,15 @@ public class UIIcon extends UIObject {
 
 	public void setColor(String color) {
 		this.color = color;
-	}	
+	}
+
+	public String getFillStyle() {
+		return fillStyle;
+	}
+
+	public void setFillStyle(String fillStyle) {
+		this.fillStyle = fillStyle;
+	}
+	
+	
 }
