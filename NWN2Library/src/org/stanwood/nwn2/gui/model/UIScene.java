@@ -94,7 +94,7 @@ public class UIScene extends NWN2GUIObject {
 	/**
 	 * This attribute can be true or false. By default it is false. It controls what happens to this scene when the resolution of the game changes. Scenes that have this attribute set to 'true' will not have their origins moved but their dimenions will be adjusted to the new resolution. Scenes that have this attribute set to 'false' will not be resized when the resolution changes but their origin will change to stay roughly in the same part of the screen that the window appeared in before.
 	 */
-	private Boolean fullscreen;
+	private Boolean fullscreen = false;
 	
 	private Boolean update;
 	
