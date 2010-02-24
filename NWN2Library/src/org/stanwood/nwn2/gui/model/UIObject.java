@@ -40,8 +40,7 @@ public class UIObject extends NWN2GUIObject {
 
 
 	private final static Log log = LogFactory.getLog(UIObject.class);
-	
-	
+		
 	private Boolean scaleWithScene;
 	
 	private Boolean prototype;
