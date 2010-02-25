@@ -70,6 +70,16 @@ public class UIFont extends NWN2GUIObject {
 	public void setOutline(Boolean outline) {
 		this.outline = outline;
 	}
+	
+	@Override
+	public Height getHeight() {
+		return null;
+	}
+	
+	@Override
+	public Width getWidth() {
+		return null;
+	}
 
 	
 }
