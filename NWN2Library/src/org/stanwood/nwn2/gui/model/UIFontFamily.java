@@ -33,6 +33,17 @@ public class UIFontFamily extends NWN2GUIObject {
 	public YPosition getY() {
 		return null;
 	}
+	
+	@Override
+	public Height getHeight() {
+	
+		return null;
+	}
+	
+	@Override
+	public Width getWidth() {	
+		return null;
+	}
 
 	public UIFont getFont(String style) {
 		for (NWN2GUIObject child : getChildren()) {

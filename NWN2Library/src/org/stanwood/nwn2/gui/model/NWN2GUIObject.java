@@ -94,6 +94,10 @@ public abstract class NWN2GUIObject implements Cloneable,Serializable {
 	public abstract XPosition getX();
 	
 	public abstract YPosition getY();
+	
+	public abstract Width getWidth();
+	
+	public abstract Height getHeight();
 
 	protected void newlyCloned() {
 		for (NWN2GUIObject child : getChildren()) {
